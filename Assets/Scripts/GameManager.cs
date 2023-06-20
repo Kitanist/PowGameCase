@@ -8,7 +8,7 @@ using System.Collections;
 public enum UnitType
 {
     Normal,
-    Speeder,
+    Speeder
 
 }
 public class GameManager : MonoSingeleton<GameManager>
@@ -17,7 +17,9 @@ public class GameManager : MonoSingeleton<GameManager>
 
     [SerializeField] private float gold = 0;
 
-    public UnityEvent Time, LevelUpPlayer;
+    [SerializeField] GameEvent setActiveSkill, deActiveSkill,levelUpPlayer;
+
+    public UnityEvent Time;
 
     public TextMeshProUGUI timeText;
 
@@ -25,7 +27,7 @@ public class GameManager : MonoSingeleton<GameManager>
 
     public bool isGameContinue = true;
 
-    Adios EventSystem;
+    
 
     public float Gold
     {
@@ -56,20 +58,20 @@ public class GameManager : MonoSingeleton<GameManager>
         }
         if (gold >= 100)
         {
-            LevelUpPlayer.AddListener(EventSystem.LevelUpUIOpen);
-            LevelUpPlayer.Invoke();
+
+            levelUpPlayer.Raise();
         }
         if (gold >= 200)
         {
-            EventSystem.SetActiveSkills();
+            setActiveSkill.Raise();
         }
         else
-            EventSystem.SetDeActiveSkills();
+            deActiveSkill.Raise();
     }
     void Load()
     {
         timeText = GameObject.Find("Debugger").GetComponentInChildren<TextMeshProUGUI>();
-        EventSystem = GameObject.Find("EventSystem").GetComponent<Adios>();
+       
     }
     void PingTime()
     {

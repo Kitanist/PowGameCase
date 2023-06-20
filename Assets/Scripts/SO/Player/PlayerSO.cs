@@ -6,7 +6,7 @@ public class PlayerSO : ScriptableObject
 {
     public float MaxHealth;
     public UnityEvent<float> healthChangeEvent;
-    public UnityEvent LoseGame;
+    
 
 
     [SerializeField] private float _Health;
@@ -34,7 +34,6 @@ public class PlayerSO : ScriptableObject
     {
         if (Health < Damage)
         {
-            LoseGame.Invoke();
             return;
         }
         Health -= Damage;

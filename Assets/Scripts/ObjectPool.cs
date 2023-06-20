@@ -26,7 +26,6 @@ public class ObjectPool : MonoSingeleton<ObjectPool>
                 GameObject obj = Instantiate(pools[j].pooledPrefab, this.gameObject.transform);
                 obj.SetActive(false);
                 pools[j].pooledObject.Add(obj);
-
             }
         }
     }

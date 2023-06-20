@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f468e711ced8d554da3f31136428afe7, type: 3}
-  m_Name: EnemyDied
+  m_Name: LevelUpPlayer
   m_EditorClassIdentifier: 
