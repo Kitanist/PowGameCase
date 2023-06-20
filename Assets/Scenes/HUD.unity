@@ -1031,6 +1031,8 @@ GameObject:
   - component: {fileID: 411498038}
   - component: {fileID: 411498037}
   - component: {fileID: 411498040}
+  - component: {fileID: 411498041}
+  - component: {fileID: 411498042}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1118,6 +1120,62 @@ MonoBehaviour:
   shotsLevel: {fileID: 1890490164}
   weaponsLevel: {fileID: 1889391444}
   joystick: {fileID: 1342302512}
+--- !u!114 &411498041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411498036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 128e493f45f81114e969944b140cf862, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 411498040}
+        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
+        m_MethodName: Losed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &411498042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 411498036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 83484eca19bd90544a91df1f9848e439, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 411498040}
+        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
+        m_MethodName: Winned
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &449658070
 GameObject:
   m_ObjectHideFlags: 0

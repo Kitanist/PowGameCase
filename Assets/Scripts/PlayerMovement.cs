@@ -7,8 +7,7 @@ using DG.Tweening;
 public class PlayerMovement : MonoBehaviour
 {
     #region Variables
-    public UnityEvent GameOverBad, GameOverGood;
-
+    [SerializeField] GameEvent Win, Lose;
     public float movementSpeed;
     public int currentLevelofFireRate = 0, currnetLevelofDamage = 0, currentLevelofFireAmount = 0, currentLevelofWeaponAmount = 0;
     public PlayerSO HealthManager;
@@ -16,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isDamageUpg;
     [SerializeField] private bool canMove = false, isKeyboard = false;
-    
+
     public GameObject Weapon1, Weapon2;
     public GameManager GM;
 
@@ -35,10 +34,10 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private PlayerSO PlayerHealth;
 
-    
-        
 
-  
+
+
+
     public bool CanMove
     {
         get { return canMove; }
@@ -181,16 +180,14 @@ public class PlayerMovement : MonoBehaviour
 
         if (!GM.isGameContinue && Time.timeScale > 0)
         {
-            GameOverGood.AddListener(EventSystem.Winned);
+            Win.Raise();
             Time.timeScale = 0f;
-            GameOverGood.Invoke();
         }
-       
+
         if (HealthManager.Health <= 0 && Time.timeScale > 0)
         {
-            GameOverBad.AddListener(EventSystem.Losed);
+            Lose.Raise();
             Time.timeScale = 0f;
-            GameOverBad.Invoke();
         }
 
     }
@@ -224,8 +221,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-
-
             animator.SetFloat("Horizontal", variableJoystick.Horizontal);
             animator.SetFloat("Vertical", variableJoystick.Vertical);
             animator.SetFloat("Speed", direction.sqrMagnitude);

@@ -7,7 +7,7 @@ using DG.Tweening;
 public class Enemy : MonoBehaviour
 {
     
-    [SerializeField] private GameEvent enemyAttacked,enemyDied;
+    
     
     public Slider healtBar;
     GameObject player;
@@ -62,7 +62,7 @@ public class Enemy : MonoBehaviour
     {
         PM.ChangeSliderValue(damage);
         PlayerHealth.healthChangeEvent.Invoke(damage);
-        enemyDied.Raise();
+        EnemyDying();
     }
    
     public void GetDamage(float extra)
@@ -78,7 +78,7 @@ public class Enemy : MonoBehaviour
             return;
         }
         healtBar.DOValue(0, .5f, false);
-        enemyDied.Raise();
+        EnemyDying();
 
     }
     public void EnemyDying()
@@ -88,8 +88,6 @@ public class Enemy : MonoBehaviour
         DieEffect.transform.position = transform.position;
         StartCoroutine(GameManager.Instance.EnemyDyingEnum(DieEffect));
         gameObject.SetActive(false);
-
-
     }
 
     public void PowerUpEnemy()

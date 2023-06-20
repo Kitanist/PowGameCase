@@ -292,36 +292,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2543eaa9864874d4eafd8160ec4024df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttacked:
-    m_PersistentCalls:
-      m_Calls: []
-  enemyDied:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3537120301694077620}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11400000, guid: 2855a2ebbcfcbae41ae4cac922302fb1, type: 2}
-        m_TargetAssemblyTypeName: PlayerSO, Assembly-CSharp
-        m_MethodName: DecreaseHealth
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  enemyAttacked: {fileID: 11400000, guid: 5e38efd9948ba7544a9e0121a8ef653c, type: 2}
+  enemyDied: {fileID: 11400000, guid: fbb9c4b9ffbdcaf4d89030698adad6b3, type: 2}
   healtBar: {fileID: 4622528792196309979}
   PlayerHealth: {fileID: 11400000, guid: 2855a2ebbcfcbae41ae4cac922302fb1, type: 2}
   speed: 0.3

@@ -9,7 +9,7 @@ public enum UnitType
 {
     Normal,
     Speeder,
-   
+
 }
 public class GameManager : MonoSingeleton<GameManager>
 {
@@ -36,6 +36,7 @@ public class GameManager : MonoSingeleton<GameManager>
                 gold = 0;
             else
                 gold = value;
+
         }
     }
     private void Start()
@@ -64,9 +65,6 @@ public class GameManager : MonoSingeleton<GameManager>
         }
         else
             EventSystem.SetDeActiveSkills();
-
-
-
     }
     void Load()
     {

@@ -12,6 +12,5 @@ public class Bullet : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().GetDamage(1);
             gameObject.SetActive(false);
         }
-        
     }
 }
