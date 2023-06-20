@@ -179,7 +179,6 @@ GameObject:
   - component: {fileID: 8093596041360697012}
   - component: {fileID: 8987568650194820701}
   - component: {fileID: 2347046957016065852}
-  - component: {fileID: 2885587436934383472}
   m_Layer: 6
   m_Name: 'Enemy '
   m_TagString: Untagged
@@ -295,11 +294,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyAttacked:
     m_PersistentCalls:
+      m_Calls: []
+  enemyDied:
+    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8093596041360697012}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: HitDamage
-        m_Mode: 1
+      - m_Target: {fileID: 3537120301694077620}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -308,10 +310,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  enemyDied:
-    m_PersistentCalls:
-      m_Calls: []
+      - m_Target: {fileID: 11400000, guid: 2855a2ebbcfcbae41ae4cac922302fb1, type: 2}
+        m_TargetAssemblyTypeName: PlayerSO, Assembly-CSharp
+        m_MethodName: DecreaseHealth
+        m_Mode: 4
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   healtBar: {fileID: 4622528792196309979}
+  PlayerHealth: {fileID: 11400000, guid: 2855a2ebbcfcbae41ae4cac922302fb1, type: 2}
   speed: 0.3
   Health: 29
   maxHealth: 29
@@ -359,38 +371,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
---- !u!114 &2885587436934383472
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3537120301694077620}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5758ca93461aeeb4589456a052b07d74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _showDebugFields: 0
-  _enableGizmoDebugging: 1
-  _debugColor: {r: 0, g: 1, b: 1, a: 1}
-  _previouslyRegisteredEvent: {fileID: 0}
-  _event: {fileID: 11400000, guid: 5e8be46e2a511f5489f3111c8a0c8183, type: 2}
-  _response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8093596041360697012}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: EnemyDying
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!1 &5148088424626405941
 GameObject:
   m_ObjectHideFlags: 0

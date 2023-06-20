@@ -3,27 +3,42 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
+using DG.Tweening;
 public class PlayerMovement : MonoBehaviour
 {
+    #region Variables
     public UnityEvent GameOverBad, GameOverGood;
+
     public float movementSpeed;
-    public float health, MaxHealth;
+    public int currentLevelofFireRate = 0, currnetLevelofDamage = 0, currentLevelofFireAmount = 0, currentLevelofWeaponAmount = 0;
+    public PlayerSO HealthManager;
     public Slider HealtBar;
+
     public bool isDamageUpg;
     [SerializeField] private bool canMove = false, isKeyboard = false;
-    public int currentLevelofFireRate = 0, currnetLevelofDamage = 0, currentLevelofFireAmount = 0, currentLevelofWeaponAmount = 0;
+    
     public GameObject Weapon1, Weapon2;
     public GameManager GM;
+
     Rigidbody2D rb;
     Animator animator;
     PlayerAttack PA;
     Weapons Weapon;
+
     private Adios EventSystem;
     [HideInInspector]
     public Vector2 movement;
     VariableJoystick variableJoystick;
     private Vector2 direction;
+    [SerializeField]
+    private Slider HealthBar;
+    [SerializeField]
+    private PlayerSO PlayerHealth;
 
+    
+        
+
+  
     public bool CanMove
     {
         get { return canMove; }
@@ -32,10 +47,10 @@ public class PlayerMovement : MonoBehaviour
             canMove = value;
         }
     }
-
+    #endregion
     void Start()
     {
-
+        ChangeSliderValue(PlayerHealth.Health);
         CanMove = true;
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
@@ -45,23 +60,30 @@ public class PlayerMovement : MonoBehaviour
         InvokeRepeating("UIUpdate", 2.1f, 1f);
         LevelUp();
     }
+    public void ChangeSliderValue(float value)
+    {
+        HealthBar.DOValue(PlayerHealth.Health / PlayerHealth.MaxHealth, 0.5f, false);
+    }
     void InitUI()
     {
         //   public TextMeshProUGUI money, health, damage, fireRate;
         EventSystem = GameObject.Find("EventSystem").GetComponent<Adios>();
         variableJoystick = EventSystem.joystick;
         EventSystem.money.text = GM.Gold.ToString();
-        EventSystem.health.text = health.ToString();
+        // UIManagera healthSo yu aktar
+        EventSystem.health.text = HealthManager.Health.ToString();
         EventSystem.damage.text = Weapon.damage.ToString();
         EventSystem.fireRate.text = PA.fireRate.ToString();
     }
     void UIUpdate()
     {
         EventSystem.money.text = "Money : " + GM.Gold.ToString();
-        EventSystem.health.text = "Health : " + health.ToString();
+        // UIManagera health SO yu aktar
+        EventSystem.health.text = "Health : " + HealthManager.Health.ToString();
         EventSystem.damage.text = "Damage : " + Weapon.damage.ToString();
         EventSystem.fireRate.text = "Fire Rate : " + PA.fireRate.ToString();
     }
+
     public void LevelUp()
     {
         switch (currentLevelofFireRate)
@@ -163,7 +185,8 @@ public class PlayerMovement : MonoBehaviour
             Time.timeScale = 0f;
             GameOverGood.Invoke();
         }
-        if (health <= 0 && Time.timeScale > 0)
+       
+        if (HealthManager.Health <= 0 && Time.timeScale > 0)
         {
             GameOverBad.AddListener(EventSystem.Losed);
             Time.timeScale = 0f;

@@ -6,11 +6,13 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class Enemy : MonoBehaviour
 {
-    public UnityEvent enemyAttacked;
-    public UnityEvent enemyDied;
+    
+    [SerializeField] private GameEvent enemyAttacked,enemyDied;
+    
     public Slider healtBar;
     GameObject player;
     PlayerMovement PM;
+    public PlayerSO PlayerHealth;
     private float damageAmount;
     [SerializeField] float speed;
     [SerializeField] float Health, maxHealth;
@@ -20,6 +22,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
+        PM = GameObject.Find("Player").GetComponent<PlayerMovement>() ;
         if (isSlow)
         {
             speed = 0.2f;
@@ -36,15 +39,11 @@ public class Enemy : MonoBehaviour
             damage = 10;
             price = 25;
         }
-
-
-
     }
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         player = GameObject.Find("Player");
-        PM = player.GetComponent<PlayerMovement>();
         Health = maxHealth;
     }
     private void FixedUpdate()
@@ -61,23 +60,11 @@ public class Enemy : MonoBehaviour
     }
     private void Attack()
     {
-
-        enemyAttacked.Invoke();
-        enemyDied.Invoke();
+        PM.ChangeSliderValue(damage);
+        PlayerHealth.healthChangeEvent.Invoke(damage);
+        enemyDied.Raise();
     }
-    public void HitDamage()
-    {
-        if (damage < PM.health || PM.health > 0)
-        {
-            PM.health -= damage;
-            PM.HealtBar.DOValue(PM.health / PM.MaxHealth, .5f, false);
-            return;
-        }
-
-        PM.health = 0;
-        PM.HealtBar.DOValue(PM.health / PM.MaxHealth, .5f, false);
-        PM.GameOverBad.Invoke();
-    }
+   
     public void GetDamage(float extra)
     {
         damageAmount = player.GetComponent<Weapons>().damage * extra;
@@ -90,11 +77,8 @@ public class Enemy : MonoBehaviour
 
             return;
         }
-
-
-
         healtBar.DOValue(0, .5f, false);
-        enemyDied.Invoke();
+        enemyDied.Raise();
 
     }
     public void EnemyDying()
@@ -115,4 +99,5 @@ public class Enemy : MonoBehaviour
         Health += 10;
         price += 10;
     }
+    
 }

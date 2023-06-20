@@ -322,6 +322,7 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
   healtBar: {fileID: 4622528792196309979}
+  PlayerHealth: {fileID: 11400000, guid: 2855a2ebbcfcbae41ae4cac922302fb1, type: 2}
   speed: 0.1
   Health: 65
   maxHealth: 65
