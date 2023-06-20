@@ -69,16 +69,12 @@ public class PlayerMovement : MonoBehaviour
         EventSystem = GameObject.Find("EventSystem").GetComponent<Adios>();
         variableJoystick = EventSystem.joystick;
         EventSystem.money.text = GM.Gold.ToString();
-        // UIManagera healthSo yu aktar
-        EventSystem.health.text = HealthManager.Health.ToString();
         EventSystem.damage.text = Weapon.damage.ToString();
         EventSystem.fireRate.text = PA.fireRate.ToString();
     }
     void UIUpdate()
     {
         EventSystem.money.text = "Money : " + GM.Gold.ToString();
-        // UIManagera health SO yu aktar
-        EventSystem.health.text = "Health : " + HealthManager.Health.ToString();
         EventSystem.damage.text = "Damage : " + Weapon.damage.ToString();
         EventSystem.fireRate.text = "Fire Rate : " + PA.fireRate.ToString();
     }

@@ -15,7 +15,7 @@ public class GameManager : MonoSingeleton<GameManager>
 {
     List<AsyncOperation> scenesToLoad = new List<AsyncOperation>();
 
-    [SerializeField] private float gold = 0;
+    [SerializeField] Gold gold;
 
     [SerializeField] GameEvent setActiveSkill, deActiveSkill,levelUpPlayer;
 
@@ -29,18 +29,7 @@ public class GameManager : MonoSingeleton<GameManager>
 
     
 
-    public float Gold
-    {
-        get { return gold; }
-        set
-        {
-            if (value < 0)
-                gold = 0;
-            else
-                gold = value;
-
-        }
-    }
+    
     private void Start()
     {
         InvokeRepeating("TimeControl", 2.1f, 1f);
@@ -56,12 +45,12 @@ public class GameManager : MonoSingeleton<GameManager>
         {
             isGameContinue = false;
         }
-        if (gold >= 100)
+        if (gold.Golds >= 100)
         {
 
             levelUpPlayer.Raise();
         }
-        if (gold >= 200)
+        if (gold.Golds >= 200)
         {
             setActiveSkill.Raise();
         }

@@ -6,8 +6,10 @@ using UnityEngine.UI;
 public class Adios : MonoBehaviour
 {
     public GameObject Win, Lose, LevelUpUI;
+    [SerializeField] Gold gold;
     public Button skillDamage, skillFireRate, skillFireAmo, skillWeaponAmo, skillActiveBum, skillActiveRatata;
     public TextMeshProUGUI money, health, damage, fireRate, damageLevel, fireRateLevel, shotsLevel, weaponsLevel;
+    [SerializeField] PlayerSO PlayerHP;
     PlayerMovement PM;
     PlayerAttack PA;
     Weapons weapon;
@@ -17,6 +19,10 @@ public class Adios : MonoBehaviour
 
         PM = GameObject.Find("Player").GetComponent<PlayerMovement>();
         PA = GameObject.Find("Player").GetComponent<PlayerAttack>();
+    }
+    private void Update()
+    {
+        health.text = PlayerHP.Health.ToString();
     }
     public void Winned()
     {
@@ -45,7 +51,7 @@ public class Adios : MonoBehaviour
         PM.LevelUp();
         damageLevel.text = "LvL : " + PM.currnetLevelofDamage.ToString();
         LevelUpUI.SetActive(false);
-        GameManager.Instance.Gold -= 100;
+        gold.Golds -= 100;
 
     }
     public void FireRateUpg()
@@ -61,7 +67,7 @@ public class Adios : MonoBehaviour
         PM.LevelUp();
         fireRateLevel.text = "LvL : " + PM.currentLevelofFireRate.ToString();
         LevelUpUI.SetActive(false);
-        GameManager.Instance.Gold -= 100;
+        gold.Golds -= 100;
     }
     public void FireAmoUpg()
     {
@@ -76,7 +82,7 @@ public class Adios : MonoBehaviour
         PM.LevelUp();
         shotsLevel.text = "LvL : " + PM.currentLevelofFireAmount.ToString();
         LevelUpUI.SetActive(false);
-        GameManager.Instance.Gold -= 100;
+        gold.Golds -= 100;
     }
     public void WeaponAmoUpg()
     {
@@ -91,7 +97,7 @@ public class Adios : MonoBehaviour
         PM.LevelUp();
         weaponsLevel.text = "LvL : " + PM.currentLevelofWeaponAmount.ToString();
         LevelUpUI.SetActive(false);
-        GameManager.Instance.Gold -= 100;
+        gold.Golds -= 100;
     }
     public void SetActiveSkills()
     {
@@ -109,7 +115,7 @@ public class Adios : MonoBehaviour
         PA.fireRate = 0.1f;
         SetDeActiveSkills();
         Invoke("DeRatata", 5f);
-        GameManager.Instance.Gold -= 200;
+        gold.Golds -= 200;
     }
     public void DeRatata()
     {
