@@ -54,6 +54,7 @@ public class Enemy : MonoBehaviour
     {
         if (timer.isGamePaused)
         {
+            rb.velocity = Vector2.zero;
             return;
         }
         enemyTransform = gameObject.transform.position;
@@ -108,6 +109,7 @@ public class Enemy : MonoBehaviour
         DieEffect.transform.position = transform.position;
         yield return new WaitForSeconds(0.5f);
         DieEffect.SetActive(false);
+        enemyCollider.enabled = true;
         gameObject.SetActive(false);
     }
     public void PowerUpEnemy()

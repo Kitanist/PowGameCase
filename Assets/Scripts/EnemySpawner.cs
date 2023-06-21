@@ -4,20 +4,21 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-
+    [SerializeField] Timerstuff timer;
+    [SerializeField] GameEvent SpawnEnemyEvent;
     public GameObject Player;
-    [SerializeField] private float SpawnTime;
+    [SerializeField] private float SpawnTime,second;
     private float SpawnDis = 2f;
     private bool isPlayerNear;
     [Range(0, 100)]
     [SerializeField] private int ChangeToSpawn, EnemyChange;
-    private void Start()
-    {
-        InvokeRepeating("SpawnEnemy", 1f, SpawnTime);
-    }
+
     private void Update()
     {
-
+        if (timer.isGamePaused)
+        {
+            return;
+        }
         float dis = Vector2.Distance(Player.transform.position, transform.position);
         if (dis > SpawnDis || !Player.activeInHierarchy)
         {
@@ -30,11 +31,17 @@ public class EnemySpawner : MonoBehaviour
             isPlayerNear = true;
             return;
         }
-
-
-
     }
-    void SpawnEnemy()
+    public void ping()
+    {
+        second--;
+        if (second <= 0)
+        {
+            second = SpawnTime;
+            SpawnEnemyEvent.Raise();
+        }
+    }
+    public void SpawnEnemy()
     {
         if (isPlayerNear)
         {
@@ -60,7 +67,7 @@ public class EnemySpawner : MonoBehaviour
     }
     public void PowerUpSpawner()
     {
-        SpawnTime -= 0.5f;
+        SpawnTime -= 1;
         ChangeToSpawn += 5;
 
     }

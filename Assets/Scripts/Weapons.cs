@@ -18,11 +18,7 @@ public class Weapons : MonoBehaviour
 
             LookAt2D(bullet, PA.target.transform.position);
             bullet.GetComponent<Rigidbody2D>().velocity = bullet.transform.up * fireForce;
-
-
         }
-
-
     }
     static void LookAt2D(GameObject mainObject, Vector3 objectToLookAt)
     {

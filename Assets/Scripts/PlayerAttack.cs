@@ -23,8 +23,13 @@ public class PlayerAttack : MonoBehaviour
 
     private float shortDis;
 
+    [SerializeField] Timerstuff timer;
     private void Update()
     {
+        if (timer.isGamePaused)
+        {
+            return;
+        }
         UpdateTarget();
         if (reset && target)
         {
