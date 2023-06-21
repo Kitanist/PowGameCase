@@ -7,6 +7,7 @@ public class Timerstuff : ScriptableObject
 {
     [SerializeField] private float time = 300;
     public bool isGameContinue = true;
+    public bool isGamePaused = false;
     public bool isSkillCooldown=false;
 
     public float Time 

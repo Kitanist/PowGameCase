@@ -9,10 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5efc7e7980a55d64ba336fc4f1b52264, type: 3}
-  m_Name: Time
+  m_Script: {fileID: 11500000, guid: f468e711ced8d554da3f31136428afe7, type: 3}
+  m_Name: TikTak
   m_EditorClassIdentifier: 
-  time: 300
-  isGameContinue: 1
-  isGamePaused: 1
-  isSkillCooldown: 0

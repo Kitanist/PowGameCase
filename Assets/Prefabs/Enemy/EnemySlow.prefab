@@ -306,6 +306,8 @@ MonoBehaviour:
   isSlow: 1
   enemyCollider: {fileID: 6555738479308787179}
   weapon: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
+  PlayerTF: {fileID: 11400000, guid: 7b56d8f231b26074eb9ec245f75ff26a, type: 2}
+  timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
 --- !u!50 &8987568650194820701
 Rigidbody2D:
   serializedVersion: 4

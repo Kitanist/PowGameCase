@@ -24,6 +24,10 @@ public class Adios : MonoBehaviour
     }
     private void Update()
     {
+        if (timer.isGamePaused)
+        {
+            return;
+        }
         health.text = "HP :" + PlayerHP.Health.ToString();
         money.text = "Gold : " + gold.Golds.ToString();
         Timer.text = "Remaining Time : " + timer.Time.ToString();

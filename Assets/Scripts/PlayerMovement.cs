@@ -10,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] GameEvent Win, Lose;
     [SerializeField] Timerstuff timer;
     [SerializeField] Weapon Weapon;
+    [SerializeField] PlayerTransform playerTF;
     public float movementSpeed;
     public int currentLevelofFireRate = 0, currnetLevelofDamage = 0, currentLevelofFireAmount = 0, currentLevelofWeaponAmount = 0;
     public PlayerSO HealthManager;
@@ -156,9 +157,12 @@ public class PlayerMovement : MonoBehaviour
     }
     void Update()
     {
-
+        if (timer.isGamePaused)
+        {
+            return;
+        }
         Move();
-
+        playerTF.Playertransform = gameObject.transform.position;
         if (!timer.isGameContinue && Time.timeScale > 0)
         {
             Win.Raise();
@@ -176,6 +180,10 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
+        if (timer.isGamePaused)
+        {
+            return;
+        }
         if (!CanMove)
             return;
         if (isKeyboard)

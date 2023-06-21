@@ -19,16 +19,33 @@ public class GameManager : MonoSingeleton<GameManager>
 
     [SerializeField] Timerstuff timer;
 
-    [SerializeField] GameEvent setActiveSkill, deActiveSkill,levelUpPlayer;
+    [SerializeField] GameEvent setActiveSkill, deActiveSkill,levelUpPlayer,tiktak;
 
-    public UnityEvent Time;  
+
+   
+
+    private float Second = 1;
     private void Start()
-    {
-        InvokeRepeating("TimeControl", 1f, 1f);
+    {  
         InvokeRepeating("PingTime", 50, 50);
         scenesToLoad.Add(SceneManager.LoadSceneAsync("HUD", LoadSceneMode.Additive));
     }
-    void TimeControl()
+    private void Update()
+    {
+        if (timer.isGamePaused)
+        {
+            return;
+        }
+        if (Second <= 0)
+        {
+            Second = 1;
+            tiktak.Raise();
+            Debug.Log("SANÝYE");
+            return;
+        }
+        Second -= Time.deltaTime;
+    }
+    public void TimeControl()
     {
         timer.Time--;
        
@@ -55,7 +72,7 @@ public class GameManager : MonoSingeleton<GameManager>
     }
     void PingTime()
     {
-        Time.Invoke();
+        
     }
    
 }

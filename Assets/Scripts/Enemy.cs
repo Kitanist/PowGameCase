@@ -14,6 +14,7 @@ public class Enemy : MonoBehaviour
     PlayerMovement PM;
     public PlayerSO PlayerHealth;
     private float damageAmount;
+    private Vector2 enemyTransform;
     [SerializeField] Animator anim;
     [SerializeField] float speed;
     [SerializeField] float Health, maxHealth;
@@ -22,6 +23,8 @@ public class Enemy : MonoBehaviour
     [SerializeField] private bool isSlow;
     [SerializeField] BoxCollider2D enemyCollider;
     [SerializeField] Weapon weapon;
+    [SerializeField] PlayerTransform PlayerTF;
+    [SerializeField] Timerstuff timer;
     private void Start()
     {
         PM = GameObject.Find("Player").GetComponent<PlayerMovement>();
@@ -44,18 +47,22 @@ public class Enemy : MonoBehaviour
     }
     private void Awake()
     {
-        
-        player = GameObject.Find("Player");
+       
         Health = maxHealth;
     }
     private void FixedUpdate()
     {
-        Vector3 direction = (player.transform.position - transform.position).normalized;
+        if (timer.isGamePaused)
+        {
+            return;
+        }
+        enemyTransform = gameObject.transform.position;
+        Vector2 direction = (PlayerTF.Playertransform - enemyTransform).normalized;
         rb.velocity = direction * speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject == player)
+        if (collision.TryGetComponent<PlayerMovement>(out _))
         {
             Attack();
         }
@@ -74,7 +81,6 @@ public class Enemy : MonoBehaviour
         {
 
             Health -= damageAmount;
-
             healtBar.DOValue(Health / maxHealth, .5f, false);
 
             return;
