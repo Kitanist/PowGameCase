@@ -6,30 +6,32 @@ public class EnemySpawner : MonoBehaviour
 {
     [SerializeField] Timerstuff timer;
     [SerializeField] GameEvent SpawnEnemyEvent;
-    public GameObject Player;
     [SerializeField] private float SpawnTime,second;
-    private float SpawnDis = 2f;
     private bool isPlayerNear;
     [Range(0, 100)]
     [SerializeField] private int ChangeToSpawn, EnemyChange;
 
-    private void Update()
+  
+    public void StopSpawn()
     {
-        if (timer.isGamePaused)
-        {
-            return;
-        }
-        float dis = Vector2.Distance(Player.transform.position, transform.position);
-        if (dis > SpawnDis || !Player.activeInHierarchy)
-        {
-            // oyuncu uzakta 
-
-            isPlayerNear = false;
-        }
-        else
+        isPlayerNear = true;
+    }
+    public void StartSpawn()
+    {
+        isPlayerNear = false;
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<PlayerMovement>(out _))
         {
             isPlayerNear = true;
-            return;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.TryGetComponent<PlayerMovement>(out _))
+        {
+            isPlayerNear = false;
         }
     }
     public void ping()
