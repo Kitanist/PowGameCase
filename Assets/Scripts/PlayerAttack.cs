@@ -4,33 +4,29 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    #region variables
     public float attackRadius = 1;
-
-  
-
     public int FireAmount = 1;
     public Collider2D[] targets, targetsForUlti;
-
     public LayerMask EnemyMask;
-
     public Weapons Weapon;
-
     [SerializeField] Weapon WP;
-
     public Transform target;
-
     protected bool reset = true;
-
     private float shortDis;
-
     [SerializeField] Timerstuff timer;
+    private void Awake()
+    {
+        InvokeRepeating("UpdateTarget", 1, 1);
+    }
+    #endregion
     private void Update()
     {
         if (timer.isGamePaused)
         {
             return;
         }
-        UpdateTarget();
+        
         if (reset && target)
         {
             reset = false;
@@ -88,5 +84,6 @@ public class PlayerAttack : MonoBehaviour
         yield return new WaitForSeconds(WP.FireRate);
 
         reset = true;
+        UpdateTarget();
     }
 }

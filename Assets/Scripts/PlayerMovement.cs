@@ -162,7 +162,7 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
         Move();
-        playerTF.Playertransform = gameObject.transform.position;
+        
         if (!timer.isGameContinue && Time.timeScale > 0)
         {
             Win.Raise();
@@ -215,5 +215,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("Vertical", variableJoystick.Vertical);
             animator.SetFloat("Speed", direction.sqrMagnitude);
         }
+        playerTF.Playertransform = gameObject.transform.position;
     }
 }

@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField] Timerstuff timer;
-    [SerializeField] GameEvent SpawnEnemyEvent;
+    
+    
     [SerializeField] private float SpawnTime,second;
     private bool isPlayerNear;
     [Range(0, 100)]
     [SerializeField] private int ChangeToSpawn, EnemyChange;
 
-  
+    private void Start()
+    {
+        second = SpawnTime;
+    }
     public void StopSpawn()
     {
         isPlayerNear = true;
@@ -37,14 +40,17 @@ public class EnemySpawner : MonoBehaviour
     public void ping()
     {
         second--;
+        
         if (second <= 0)
         {
             second = SpawnTime;
-            SpawnEnemyEvent.Raise();
+            
+            SpawnEnemy();
         }
     }
     public void SpawnEnemy()
     {
+       
         if (isPlayerNear)
         {
             return;

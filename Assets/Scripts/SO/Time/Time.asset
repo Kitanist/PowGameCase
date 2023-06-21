@@ -13,6 +13,8 @@ MonoBehaviour:
   m_Name: Time
   m_EditorClassIdentifier: 
   time: 300
+  pauseGame: {fileID: 11400000, guid: 26f485e81b5a35241ae4c6d15914f33e, type: 2}
+  continueGame: {fileID: 11400000, guid: f90d577e3b78e4040a85febc281991d1, type: 2}
   isGameContinue: 1
-  isGamePaused: 1
+  isGamePaused: 0
   isSkillCooldown: 0

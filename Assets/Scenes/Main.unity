@@ -850,8 +850,10 @@ GameObject:
   m_Component:
   - component: {fileID: 703043225}
   - component: {fileID: 703043224}
-  - component: {fileID: 703043227}
   - component: {fileID: 703043226}
+  - component: {fileID: 703043230}
+  - component: {fileID: 703043229}
+  - component: {fileID: 703043228}
   m_Layer: 0
   m_Name: EnemySpawner (5)
   m_TagString: Untagged
@@ -871,9 +873,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c458fe7b7df6f0d428f068ef5076dd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
-  SpawnEnemyEvent: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
-  Player: {fileID: 2074360795}
   SpawnTime: 2
   second: 0
   ChangeToSpawn: 25
@@ -921,7 +920,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &703043227
+--- !u!114 &703043228
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -933,13 +932,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
+  event: {fileID: 11400000, guid: 26f485e81b5a35241ae4c6d15914f33e, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 703043224}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: SpawnEnemy
+        m_MethodName: StopSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -949,6 +948,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &703043229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703043223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: f90d577e3b78e4040a85febc281991d1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 703043224}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: StartSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &703043230
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 703043223}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.074893, y: -0.046362042}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.0613332, y: 2.7047017}
+  m_EdgeRadius: 0
 --- !u!1 &805303765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1064,8 +1117,10 @@ GameObject:
   m_Component:
   - component: {fileID: 872696363}
   - component: {fileID: 872696362}
-  - component: {fileID: 872696365}
   - component: {fileID: 872696364}
+  - component: {fileID: 872696368}
+  - component: {fileID: 872696367}
+  - component: {fileID: 872696366}
   m_Layer: 0
   m_Name: EnemySpawner (4)
   m_TagString: Untagged
@@ -1085,9 +1140,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c458fe7b7df6f0d428f068ef5076dd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
-  SpawnEnemyEvent: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
-  Player: {fileID: 2074360795}
   SpawnTime: 1
   second: 0
   ChangeToSpawn: 10
@@ -1135,7 +1187,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &872696365
+--- !u!114 &872696366
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1147,13 +1199,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
+  event: {fileID: 11400000, guid: 26f485e81b5a35241ae4c6d15914f33e, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 872696362}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: SpawnEnemy
+        m_MethodName: StopSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1163,6 +1215,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &872696367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872696361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: f90d577e3b78e4040a85febc281991d1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 872696362}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: StartSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &872696368
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 872696361}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.11271441, y: 0.07878339}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.8184583, y: 2.6308348}
+  m_EdgeRadius: 0
 --- !u!1 &935385692 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6549519961272317027, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
@@ -1863,8 +1969,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1321186019}
   - component: {fileID: 1321186018}
-  - component: {fileID: 1321186021}
   - component: {fileID: 1321186020}
+  - component: {fileID: 1321186024}
+  - component: {fileID: 1321186023}
+  - component: {fileID: 1321186022}
   m_Layer: 0
   m_Name: EnemySpawner (1)
   m_TagString: Untagged
@@ -1884,9 +1992,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c458fe7b7df6f0d428f068ef5076dd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
-  SpawnEnemyEvent: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
-  Player: {fileID: 2074360795}
   SpawnTime: 2
   second: 0
   ChangeToSpawn: 15
@@ -1934,7 +2039,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1321186021
+--- !u!114 &1321186022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1946,13 +2051,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
+  event: {fileID: 11400000, guid: 26f485e81b5a35241ae4c6d15914f33e, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1321186018}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: SpawnEnemy
+        m_MethodName: StopSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1962,6 +2067,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1321186023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321186017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: f90d577e3b78e4040a85febc281991d1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1321186018}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: StartSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &1321186024
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1321186017}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.098526716, y: -0.33252704}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.1840043, y: 1.6650541}
+  m_EdgeRadius: 0
 --- !u!1 &1362107416
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,6 +2167,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDisable: 0.8
+  timer: 0
 --- !u!212 &1362107419
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4082,6 +4242,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDisable: 0.8
+  timer: 0
 --- !u!212 &1393775526
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4144,8 +4305,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1455012380}
   - component: {fileID: 1455012379}
-  - component: {fileID: 1455012382}
   - component: {fileID: 1455012381}
+  - component: {fileID: 1455012385}
+  - component: {fileID: 1455012384}
+  - component: {fileID: 1455012383}
   m_Layer: 0
   m_Name: EnemySpawner (3)
   m_TagString: Untagged
@@ -4165,9 +4328,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c458fe7b7df6f0d428f068ef5076dd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
-  SpawnEnemyEvent: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
-  Player: {fileID: 2074360795}
   SpawnTime: 6
   second: 0
   ChangeToSpawn: 55
@@ -4215,7 +4375,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1455012382
+--- !u!114 &1455012383
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4227,13 +4387,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
+  event: {fileID: 11400000, guid: 26f485e81b5a35241ae4c6d15914f33e, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1455012379}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: SpawnEnemy
+        m_MethodName: StopSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4243,6 +4403,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1455012384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455012378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: f90d577e3b78e4040a85febc281991d1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1455012379}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: StartSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &1455012385
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1455012378}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.3277912, y: 0.15506923}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.6971803, y: 2.4385364}
+  m_EdgeRadius: 0
 --- !u!1 &1477570730
 GameObject:
   m_ObjectHideFlags: 0
@@ -4290,8 +4504,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToAttack: 2
+  timer: 0
   leftWhipObject: {fileID: 1393775523}
   rightWhipObject: {fileID: 1362107416}
+  playerMovement: {fileID: 0}
 --- !u!1 &1492970525
 GameObject:
   m_ObjectHideFlags: 0
@@ -4301,9 +4517,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1492970527}
+  - component: {fileID: 1492970532}
   - component: {fileID: 1492970526}
-  - component: {fileID: 1492970529}
   - component: {fileID: 1492970528}
+  - component: {fileID: 1492970531}
+  - component: {fileID: 1492970530}
   m_Layer: 0
   m_Name: EnemySpawner
   m_TagString: Untagged
@@ -4323,9 +4541,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c458fe7b7df6f0d428f068ef5076dd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
-  SpawnEnemyEvent: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
-  Player: {fileID: 2074360795}
   SpawnTime: 4
   second: 0
   ChangeToSpawn: 30
@@ -4373,7 +4588,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1492970529
+--- !u!114 &1492970530
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4385,13 +4600,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
+  event: {fileID: 11400000, guid: 26f485e81b5a35241ae4c6d15914f33e, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1492970526}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: SpawnEnemy
+        m_MethodName: StopSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4401,6 +4616,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1492970531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492970525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: f90d577e3b78e4040a85febc281991d1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1492970526}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: StartSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &1492970532
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492970525}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.23344171, y: -0.22463238}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.263944, y: 1.9425762}
+  m_EdgeRadius: 0
 --- !u!1001 &1511774155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4468,8 +4737,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1543095337}
   - component: {fileID: 1543095336}
-  - component: {fileID: 1543095339}
   - component: {fileID: 1543095338}
+  - component: {fileID: 1543095342}
+  - component: {fileID: 1543095341}
+  - component: {fileID: 1543095340}
   m_Layer: 0
   m_Name: EnemySpawner (2)
   m_TagString: Untagged
@@ -4489,9 +4760,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c458fe7b7df6f0d428f068ef5076dd3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
-  SpawnEnemyEvent: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
-  Player: {fileID: 2074360795}
   SpawnTime: 2.5
   second: 0
   ChangeToSpawn: 20
@@ -4539,7 +4807,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1543095339
+--- !u!114 &1543095340
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4551,13 +4819,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: f1632cea3409aff4c8b09e3e1532fcc1, type: 2}
+  event: {fileID: 11400000, guid: 26f485e81b5a35241ae4c6d15914f33e, type: 2}
   response:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1543095336}
         m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
-        m_MethodName: SpawnEnemy
+        m_MethodName: StopSpawn
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4567,6 +4835,60 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &1543095341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543095335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: f90d577e3b78e4040a85febc281991d1, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1543095336}
+        m_TargetAssemblyTypeName: EnemySpawner, Assembly-CSharp
+        m_MethodName: StartSpawn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!61 &1543095342
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1543095335}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.127262, y: 0.064627886}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.9538958, y: 2.6318517}
+  m_EdgeRadius: 0
 --- !u!1 &1563358950
 GameObject:
   m_ObjectHideFlags: 0
