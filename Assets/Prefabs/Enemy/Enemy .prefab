@@ -292,10 +292,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2543eaa9864874d4eafd8160ec4024df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttacked: {fileID: 11400000, guid: 5e38efd9948ba7544a9e0121a8ef653c, type: 2}
-  enemyDied: {fileID: 11400000, guid: fbb9c4b9ffbdcaf4d89030698adad6b3, type: 2}
+  increaseGold: {fileID: 11400000, guid: 5ffc449b1bdc48543ab653e7bda76491, type: 2}
+  increaseGoldSlow: {fileID: 11400000, guid: b3cb59de94732904f9881e0bdd35b321, type: 2}
   healtBar: {fileID: 4622528792196309979}
   PlayerHealth: {fileID: 11400000, guid: 2855a2ebbcfcbae41ae4cac922302fb1, type: 2}
+  anim: {fileID: 2347046957016065852}
   speed: 0.3
   Health: 29
   maxHealth: 29

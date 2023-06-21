@@ -6,14 +6,15 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class Enemy : MonoBehaviour
 {
-    
-    
-    
+
+
+    [SerializeField] private GameEvent increaseGold, increaseGoldSlow;
     public Slider healtBar;
     GameObject player;
     PlayerMovement PM;
     public PlayerSO PlayerHealth;
     private float damageAmount;
+    [SerializeField] Animator anim;
     [SerializeField] float speed;
     [SerializeField] float Health, maxHealth;
     [SerializeField] float damage, price;
@@ -22,7 +23,7 @@ public class Enemy : MonoBehaviour
 
     private void Start()
     {
-        PM = GameObject.Find("Player").GetComponent<PlayerMovement>() ;
+        PM = GameObject.Find("Player").GetComponent<PlayerMovement>();
         if (isSlow)
         {
             speed = 0.2f;
@@ -64,7 +65,7 @@ public class Enemy : MonoBehaviour
         PlayerHealth.healthChangeEvent.Invoke(damage);
         EnemyDying();
     }
-   
+
     public void GetDamage(float extra)
     {
         damageAmount = player.GetComponent<Weapons>().damage * extra;
@@ -83,13 +84,24 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyDying()
     {
-        GameManager.Instance.Gold += price;
+        if (isSlow)
+            increaseGold.Raise();
+        else
+            increaseGoldSlow.Raise();
+        // þu efekti de event sisteme ata 
+
+        StartCoroutine(EnemyDyingEnum());
+       
+    }
+    public IEnumerator EnemyDyingEnum()
+    {
+        anim.SetBool("isAlive", false);
         GameObject DieEffect = ObjectPool.Instance.GetPooledObject(3);
         DieEffect.transform.position = transform.position;
-        StartCoroutine(GameManager.Instance.EnemyDyingEnum(DieEffect));
+        yield return new WaitForSeconds(0.5f);
+        DieEffect.SetActive(false);
         gameObject.SetActive(false);
     }
-
     public void PowerUpEnemy()
     {
         damage += 5;
@@ -97,5 +109,5 @@ public class Enemy : MonoBehaviour
         Health += 10;
         price += 10;
     }
-    
+
 }

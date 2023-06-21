@@ -178,6 +178,7 @@ GameObject:
   - component: {fileID: 6555738479308787179}
   - component: {fileID: 8093596041360697012}
   - component: {fileID: 8987568650194820701}
+  - component: {fileID: 6323438983388331257}
   m_Layer: 6
   m_Name: EnemySlow
   m_TagString: Untagged
@@ -291,38 +292,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2543eaa9864874d4eafd8160ec4024df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyAttacked:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8093596041360697012}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: HitDamage
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  enemyDied:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 8093596041360697012}
-        m_TargetAssemblyTypeName: Enemy, Assembly-CSharp
-        m_MethodName: EnemyDying
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  increaseGold: {fileID: 11400000, guid: 5ffc449b1bdc48543ab653e7bda76491, type: 2}
+  increaseGoldSlow: {fileID: 11400000, guid: b3cb59de94732904f9881e0bdd35b321, type: 2}
   healtBar: {fileID: 4622528792196309979}
   PlayerHealth: {fileID: 11400000, guid: 2855a2ebbcfcbae41ae4cac922302fb1, type: 2}
+  anim: {fileID: 6323438983388331257}
   speed: 0.1
   Health: 65
   maxHealth: 65
@@ -350,6 +324,26 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!95 &6323438983388331257
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3537120301694077620}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2e5da77687cc7864986042f2dae24965, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &5148088424626405941
 GameObject:
   m_ObjectHideFlags: 0

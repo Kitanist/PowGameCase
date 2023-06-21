@@ -8,6 +8,7 @@ public class PlayerMovement : MonoBehaviour
 {
     #region Variables
     [SerializeField] GameEvent Win, Lose;
+    [SerializeField] Timerstuff timer;
     public float movementSpeed;
     public int currentLevelofFireRate = 0, currnetLevelofDamage = 0, currentLevelofFireAmount = 0, currentLevelofWeaponAmount = 0;
     public PlayerSO HealthManager;
@@ -68,13 +69,13 @@ public class PlayerMovement : MonoBehaviour
         //   public TextMeshProUGUI money, health, damage, fireRate;
         EventSystem = GameObject.Find("EventSystem").GetComponent<Adios>();
         variableJoystick = EventSystem.joystick;
-        EventSystem.money.text = GM.Gold.ToString();
+       
         EventSystem.damage.text = Weapon.damage.ToString();
         EventSystem.fireRate.text = PA.fireRate.ToString();
     }
     void UIUpdate()
     {
-        EventSystem.money.text = "Money : " + GM.Gold.ToString();
+       
         EventSystem.damage.text = "Damage : " + Weapon.damage.ToString();
         EventSystem.fireRate.text = "Fire Rate : " + PA.fireRate.ToString();
     }
@@ -174,16 +175,18 @@ public class PlayerMovement : MonoBehaviour
 
         Move();
 
-        if (!GM.isGameContinue && Time.timeScale > 0)
+        if (!timer.isGameContinue && Time.timeScale > 0)
         {
             Win.Raise();
             Time.timeScale = 0f;
+            Debug.Log("Zamaný yedim afied");
         }
 
         if (HealthManager.Health <= 0 && Time.timeScale > 0)
         {
             Lose.Raise();
             Time.timeScale = 0f;
+            Debug.Log("Zamaný yedim");
         }
 
     }

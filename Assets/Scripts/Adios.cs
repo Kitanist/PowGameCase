@@ -7,8 +7,9 @@ public class Adios : MonoBehaviour
 {
     public GameObject Win, Lose, LevelUpUI;
     [SerializeField] Gold gold;
+    [SerializeField] Timerstuff timer;
     public Button skillDamage, skillFireRate, skillFireAmo, skillWeaponAmo, skillActiveBum, skillActiveRatata;
-    public TextMeshProUGUI money, health, damage, fireRate, damageLevel, fireRateLevel, shotsLevel, weaponsLevel;
+    public TextMeshProUGUI money, health, damage, fireRate, damageLevel, fireRateLevel, shotsLevel, weaponsLevel,Timer;
     [SerializeField] PlayerSO PlayerHP;
     PlayerMovement PM;
     PlayerAttack PA;
@@ -22,7 +23,9 @@ public class Adios : MonoBehaviour
     }
     private void Update()
     {
-        health.text = PlayerHP.Health.ToString();
+        health.text = "HP :" + PlayerHP.Health.ToString();
+        money.text = "Gold : " + gold.Golds.ToString();
+        Timer.text = "Remaining Time : " + timer.Time.ToString();
     }
     public void Winned()
     {

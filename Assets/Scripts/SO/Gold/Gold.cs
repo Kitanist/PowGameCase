@@ -5,7 +5,11 @@ using UnityEngine;
 public class Gold : ScriptableObject
 {
     [SerializeField] private float gold = 0;
+    private void OnEnable()
+    {
+        gold = 0;
 
+    }
     public float Golds
     {
         get { return gold; }

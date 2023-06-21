@@ -17,37 +17,33 @@ public class GameManager : MonoSingeleton<GameManager>
 
     [SerializeField] Gold gold;
 
+    [SerializeField] Timerstuff timer;
+
     [SerializeField] GameEvent setActiveSkill, deActiveSkill,levelUpPlayer;
 
     public UnityEvent Time;
 
-    public TextMeshProUGUI timeText;
+   
 
-    public float Timer = 300;
-
-    public bool isGameContinue = true;
+    
 
     
 
     
     private void Start()
     {
-        InvokeRepeating("TimeControl", 2.1f, 1f);
+        InvokeRepeating("TimeControl", 1f, 1f);
         InvokeRepeating("PingTime", 50, 50);
         scenesToLoad.Add(SceneManager.LoadSceneAsync("HUD", LoadSceneMode.Additive));
-        Invoke("Load", 2);
+     
     }
     void TimeControl()
     {
-        Timer--;
-        timeText.text = Timer.ToString();
-        if (Timer == 0 || Timer < 0)
-        {
-            isGameContinue = false;
-        }
+
+        timer.Time--;
+       
         if (gold.Golds >= 100)
         {
-
             levelUpPlayer.Raise();
         }
         if (gold.Golds >= 200)
@@ -57,18 +53,19 @@ public class GameManager : MonoSingeleton<GameManager>
         else
             deActiveSkill.Raise();
     }
-    void Load()
+   
+    public void increaseGold()
     {
-        timeText = GameObject.Find("Debugger").GetComponentInChildren<TextMeshProUGUI>();
-       
+        gold.Golds += 25;
+    }
+    public void increaseGoldSlow()
+    {
+
+        gold.Golds += 50;
     }
     void PingTime()
     {
         Time.Invoke();
     }
-    public IEnumerator EnemyDyingEnum(GameObject Efect)
-    {
-        yield return new WaitForSeconds(0.5f);
-        Efect.SetActive(false);
-    }
+   
 }
