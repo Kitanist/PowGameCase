@@ -21,37 +21,27 @@ public class GameManager : MonoSingeleton<GameManager>
 
     [SerializeField] GameEvent setActiveSkill, deActiveSkill,levelUpPlayer;
 
-    public UnityEvent Time;
-
-   
-
-    
-
-    
-
-    
+    public UnityEvent Time;  
     private void Start()
     {
         InvokeRepeating("TimeControl", 1f, 1f);
         InvokeRepeating("PingTime", 50, 50);
         scenesToLoad.Add(SceneManager.LoadSceneAsync("HUD", LoadSceneMode.Additive));
-     
     }
     void TimeControl()
     {
-
         timer.Time--;
        
         if (gold.Golds >= 100)
         {
             levelUpPlayer.Raise();
         }
-        if (gold.Golds >= 200)
+        if (gold.Golds >= 200 && !timer.isSkillCooldown)
         {
             setActiveSkill.Raise();
         }
-        else
-            deActiveSkill.Raise();
+       // else
+       //     deActiveSkill.Raise();
     }
    
     public void increaseGold()

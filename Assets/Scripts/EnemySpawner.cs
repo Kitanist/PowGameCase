@@ -40,24 +40,23 @@ public class EnemySpawner : MonoBehaviour
         {
             return;
         }
-        else
+
+
+        if (ChangeToSpawn > Random.Range(0, 100))
         {
-
-            if (ChangeToSpawn > Random.Range(0, 100))
+            if (EnemyChange > Random.Range(0, 100))
             {
-                if (EnemyChange > Random.Range(0, 100))
-                {
-                    GameObject EnemySlow = ObjectPool.Instance.GetPooledObject(2);
-                    EnemySlow.transform.position = transform.position;
-                }
-                else
-                {
-                    GameObject Enemy = ObjectPool.Instance.GetPooledObject(1);
-                    Enemy.transform.position = transform.position;
-                }
+                GameObject EnemySlow = ObjectPool.Instance.GetPooledObject(2);
+                EnemySlow.transform.position = transform.position;
             }
-
+            else
+            {
+                GameObject Enemy = ObjectPool.Instance.GetPooledObject(1);
+                Enemy.transform.position = transform.position;
+            }
         }
+
+
     }
     public void PowerUpSpawner()
     {

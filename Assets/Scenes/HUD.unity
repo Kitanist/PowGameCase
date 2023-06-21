@@ -1110,6 +1110,7 @@ MonoBehaviour:
   LevelUpUI: {fileID: 1320569684}
   gold: {fileID: 11400000, guid: c128d35b5a08f294cb93169187ebb823, type: 2}
   timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
+  WP: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
   skillDamage: {fileID: 754097924}
   skillFireRate: {fileID: 2138457465}
   skillFireAmo: {fileID: 728011338}

@@ -302,7 +302,10 @@ MonoBehaviour:
   maxHealth: 65
   damage: 10
   price: 50
+  rb: {fileID: 8987568650194820701}
   isSlow: 1
+  enemyCollider: {fileID: 6555738479308787179}
+  weapon: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
 --- !u!50 &8987568650194820701
 Rigidbody2D:
   serializedVersion: 4

@@ -6,7 +6,7 @@ public class PlayerAttack : MonoBehaviour
 {
     public float attackRadius = 1;
 
-    public float fireRate = 2;
+  
 
     public int FireAmount = 1;
     public Collider2D[] targets, targetsForUlti;
@@ -14,6 +14,8 @@ public class PlayerAttack : MonoBehaviour
     public LayerMask EnemyMask;
 
     public Weapons Weapon;
+
+    [SerializeField] Weapon WP;
 
     public Transform target;
 
@@ -78,7 +80,7 @@ public class PlayerAttack : MonoBehaviour
     IEnumerator ResetAttack()
     {
 
-        yield return new WaitForSeconds(fireRate);
+        yield return new WaitForSeconds(WP.FireRate);
 
         reset = true;
     }

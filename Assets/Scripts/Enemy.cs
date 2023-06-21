@@ -18,9 +18,10 @@ public class Enemy : MonoBehaviour
     [SerializeField] float speed;
     [SerializeField] float Health, maxHealth;
     [SerializeField] float damage, price;
-    Rigidbody2D rb;
+    [SerializeField] Rigidbody2D rb;
     [SerializeField] private bool isSlow;
-
+    [SerializeField] BoxCollider2D enemyCollider;
+    [SerializeField] Weapon weapon;
     private void Start()
     {
         PM = GameObject.Find("Player").GetComponent<PlayerMovement>();
@@ -43,7 +44,7 @@ public class Enemy : MonoBehaviour
     }
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        
         player = GameObject.Find("Player");
         Health = maxHealth;
     }
@@ -68,7 +69,7 @@ public class Enemy : MonoBehaviour
 
     public void GetDamage(float extra)
     {
-        damageAmount = player.GetComponent<Weapons>().damage * extra;
+        damageAmount = weapon.Damage * extra;
         if (Health > damageAmount && Health > 0)
         {
 
@@ -95,6 +96,7 @@ public class Enemy : MonoBehaviour
     }
     public IEnumerator EnemyDyingEnum()
     {
+        enemyCollider.enabled = false;
         anim.SetBool("isAlive", false);
         GameObject DieEffect = ObjectPool.Instance.GetPooledObject(3);
         DieEffect.transform.position = transform.position;

@@ -9,6 +9,7 @@ public class PlayerMovement : MonoBehaviour
     #region Variables
     [SerializeField] GameEvent Win, Lose;
     [SerializeField] Timerstuff timer;
+    [SerializeField] Weapon Weapon;
     public float movementSpeed;
     public int currentLevelofFireRate = 0, currnetLevelofDamage = 0, currentLevelofFireAmount = 0, currentLevelofWeaponAmount = 0;
     public PlayerSO HealthManager;
@@ -20,10 +21,10 @@ public class PlayerMovement : MonoBehaviour
     public GameObject Weapon1, Weapon2;
     public GameManager GM;
 
-    Rigidbody2D rb;
-    Animator animator;
-    PlayerAttack PA;
-    Weapons Weapon;
+    [SerializeField] Rigidbody2D rb;
+    [SerializeField] Animator animator;
+    [SerializeField] PlayerAttack PA;
+    
 
     private Adios EventSystem;
     [HideInInspector]
@@ -34,11 +35,6 @@ public class PlayerMovement : MonoBehaviour
     private Slider HealthBar;
     [SerializeField]
     private PlayerSO PlayerHealth;
-
-
-
-
-
     public bool CanMove
     {
         get { return canMove; }
@@ -52,12 +48,7 @@ public class PlayerMovement : MonoBehaviour
     {
         ChangeSliderValue(PlayerHealth.Health);
         CanMove = true;
-        rb = GetComponent<Rigidbody2D>();
-        animator = GetComponent<Animator>();
-        PA = GetComponent<PlayerAttack>();
-        Weapon = GetComponent<Weapons>();
         Invoke("InitUI", 2.1f);
-        InvokeRepeating("UIUpdate", 2.1f, 1f);
         LevelUp();
     }
     public void ChangeSliderValue(float value)
@@ -70,55 +61,48 @@ public class PlayerMovement : MonoBehaviour
         EventSystem = GameObject.Find("EventSystem").GetComponent<Adios>();
         variableJoystick = EventSystem.joystick;
        
-        EventSystem.damage.text = Weapon.damage.ToString();
-        EventSystem.fireRate.text = PA.fireRate.ToString();
     }
-    void UIUpdate()
-    {
-       
-        EventSystem.damage.text = "Damage : " + Weapon.damage.ToString();
-        EventSystem.fireRate.text = "Fire Rate : " + PA.fireRate.ToString();
-    }
+   
 
     public void LevelUp()
     {
         switch (currentLevelofFireRate)
         {
             case 0:
-                PA.fireRate = 2;
+                Weapon.FireRate = 2;
                 break;
             case 1:
-                PA.fireRate = 1.9f;
+                Weapon.FireRate = 1.9f;
                 break;
             case 2:
-                PA.fireRate = 1.8f;
+                Weapon.FireRate = 1.8f;
                 break;
             case 3:
-                PA.fireRate = 1.7f;
+                Weapon.FireRate = 1.7f;
                 break;
             case 4:
-                PA.fireRate = 1.6f;
+                Weapon.FireRate = 1.6f;
                 break;
             case 5:
-                PA.fireRate = 1.5f;
+                Weapon.FireRate = 1.5f;
                 break;
             case 6:
-                PA.fireRate = 1.4f;
+                Weapon.FireRate = 1.4f;
                 break;
             case 7:
-                PA.fireRate = 1.3f;
+                Weapon.FireRate = 1.3f;
                 break;
             case 8:
-                PA.fireRate = 1.2f;
+                Weapon.FireRate = 1.2f;
                 break;
             case 9:
-                PA.fireRate = 1.1f;
+                Weapon.FireRate = 1.1f;
                 break;
             case 10:
-                PA.fireRate = 1;
+                Weapon.FireRate = 1;
                 break;
             case 11:
-                PA.fireRate = 0.9f;
+                Weapon.FireRate = 0.9f;
                 break;
             default:
                 break;
@@ -126,7 +110,7 @@ public class PlayerMovement : MonoBehaviour
         switch (currnetLevelofDamage)
         {
             case 0:
-                Weapon.damage = 10;
+                Weapon.Damage = 10;
                 isDamageUpg = true;
                 break;
             default:
@@ -136,7 +120,7 @@ public class PlayerMovement : MonoBehaviour
         if (!isDamageUpg)
         {
             isDamageUpg = true;
-            Weapon.damage *= 1.1f;
+            Weapon.Damage *= 1.1f;
 
         }
         switch (currentLevelofFireAmount)
@@ -216,14 +200,12 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("Horizontal", movement.x);
             animator.SetFloat("Vertical", movement.y);
             animator.SetFloat("Speed", movement.sqrMagnitude);
-
         }
         else
         {
             animator.SetFloat("Horizontal", variableJoystick.Horizontal);
             animator.SetFloat("Vertical", variableJoystick.Vertical);
             animator.SetFloat("Speed", direction.sqrMagnitude);
-
         }
     }
 }

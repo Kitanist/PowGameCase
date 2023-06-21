@@ -7,6 +7,8 @@ public class Timerstuff : ScriptableObject
 {
     [SerializeField] private float time = 300;
     public bool isGameContinue = true;
+    public bool isSkillCooldown=false;
+
     public float Time 
     {
         get { return time; }
@@ -23,5 +25,9 @@ public class Timerstuff : ScriptableObject
                 isGameContinue = true;
             }
         }
+    }
+    private void OnEnable()
+    {
+        time = 300;
     }
 }

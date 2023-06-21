@@ -5,7 +5,6 @@ using UnityEngine;
 public class Weapons : MonoBehaviour
 {
     public Transform firepoint;
-    public float damage;
     public PlayerAttack PA;
     public float fireForce = 20f;
     private int poolIndex = 0;

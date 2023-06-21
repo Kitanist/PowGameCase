@@ -8,6 +8,7 @@ public class Adios : MonoBehaviour
     public GameObject Win, Lose, LevelUpUI;
     [SerializeField] Gold gold;
     [SerializeField] Timerstuff timer;
+    [SerializeField] Weapon WP;
     public Button skillDamage, skillFireRate, skillFireAmo, skillWeaponAmo, skillActiveBum, skillActiveRatata;
     public TextMeshProUGUI money, health, damage, fireRate, damageLevel, fireRateLevel, shotsLevel, weaponsLevel,Timer;
     [SerializeField] PlayerSO PlayerHP;
@@ -26,6 +27,8 @@ public class Adios : MonoBehaviour
         health.text = "HP :" + PlayerHP.Health.ToString();
         money.text = "Gold : " + gold.Golds.ToString();
         Timer.text = "Remaining Time : " + timer.Time.ToString();
+        fireRate.text = "Fire Rate : " + WP.FireRate.ToString();
+        damage.text = "Damage : " + WP.Damage.ToString();
     }
     public void Winned()
     {
@@ -112,28 +115,32 @@ public class Adios : MonoBehaviour
         skillActiveBum.interactable = false;
         skillActiveRatata.interactable = false;
     }
+    
     public void Ratata()
     {
         Debug.Log("AAA");
-        PA.fireRate = 0.1f;
+        WP.FireRate = 0.1f;
         SetDeActiveSkills();
         Invoke("DeRatata", 5f);
+        timer.isSkillCooldown = true;
         gold.Golds -= 200;
     }
     public void DeRatata()
     {
         PM.LevelUp();
-        SetActiveSkills();
+        timer.isSkillCooldown = false;
     }
     public void Bum()
     {
         PA.skillActiveBam();
         Invoke("DeBum", 5f);
         SetDeActiveSkills();
+        timer.isSkillCooldown = true;
+        gold.Golds -= 200;
     }
     public void DeBum()
     {
-        SetActiveSkills();
+        timer.isSkillCooldown = false;
     }
     public void Bye()
     {

@@ -358,7 +358,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 2
+  orthographic size: 2.4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1064,7 +1064,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRadius: 1
-  fireRate: 2
   FireAmount: 1
   targets: []
   targetsForUlti: []
@@ -1072,6 +1071,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Weapon: {fileID: 935385695}
+  WP: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
   target: {fileID: 0}
 --- !u!114 &935385695
 MonoBehaviour:
@@ -1086,7 +1086,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 935385693}
-  damage: 10
   PA: {fileID: 935385694}
   fireForce: 1
 --- !u!1 &986663100
@@ -4738,7 +4737,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 1858629796}
-  damage: 10
   PA: {fileID: 1858629798}
   fireForce: 1
 --- !u!114 &1858629798
@@ -4754,7 +4752,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRadius: 1
-  fireRate: 2
   FireAmount: 1
   targets: []
   targetsForUlti: []
@@ -4762,6 +4759,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   Weapon: {fileID: 1858629797}
+  WP: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
   target: {fileID: 0}
 --- !u!1 &1982931480
 GameObject:
@@ -27515,7 +27513,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firepoint: {fileID: 2074360800}
-  damage: 10
   PA: {fileID: 7674444115802435849}
   fireForce: 1
 --- !u!1001 &7674444115802435848
@@ -27533,6 +27530,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 914342700151335364, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
+      propertyPath: WP
+      value: 
+      objectReference: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
     - target: {fileID: 914342700151335364, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
       propertyPath: Weapon
       value: 
@@ -27606,6 +27607,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1563358952}
     - target: {fileID: 7674444115376008406, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
+      propertyPath: PA
+      value: 
+      objectReference: {fileID: 7674444115802435849}
+    - target: {fileID: 7674444115376008406, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 7674444115802435858}
+    - target: {fileID: 7674444115376008406, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
       propertyPath: Win
       value: 
       objectReference: {fileID: 11400000, guid: 83484eca19bd90544a91df1f9848e439, type: 2}
@@ -27620,7 +27629,7 @@ PrefabInstance:
     - target: {fileID: 7674444115376008406, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
       propertyPath: Weapon
       value: 
-      objectReference: {fileID: 2074360801}
+      objectReference: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
     - target: {fileID: 7674444115376008406, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
       propertyPath: health
       value: 90
@@ -27641,6 +27650,10 @@ PrefabInstance:
       propertyPath: HealtBar
       value: 
       objectReference: {fileID: 1742854412}
+    - target: {fileID: 7674444115376008406, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
+      propertyPath: animator
+      value: 
+      objectReference: {fileID: 7674444115802435856}
     - target: {fileID: 7674444115376008406, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
       propertyPath: HealthBar
       value: 
@@ -27782,3 +27795,13 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.0025715828, y: 0.0027702153}
   m_EdgeRadius: 0
+--- !u!95 &7674444115802435856 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7674444115376008426, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
+  m_PrefabInstance: {fileID: 7674444115802435848}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &7674444115802435858 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 7674444115376008407, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
+  m_PrefabInstance: {fileID: 7674444115802435848}
+  m_PrefabAsset: {fileID: 0}
