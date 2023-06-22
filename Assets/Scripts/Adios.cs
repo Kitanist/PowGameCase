@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
@@ -9,17 +7,17 @@ public class Adios : MonoBehaviour
     [SerializeField] Gold gold;
     [SerializeField] Timerstuff timer;
     [SerializeField] Weapon WP;
+    [SerializeField] PlayerData PData;
+    [SerializeField] GameEvent LevelUp,LoadGameEvent,SavegameEvent;
     public Button skillDamage, skillFireRate, skillFireAmo, skillWeaponAmo, skillActiveBum, skillActiveRatata;
     public TextMeshProUGUI money, health, damage, fireRate, damageLevel, fireRateLevel, shotsLevel, weaponsLevel,Timer;
-    [SerializeField] PlayerSO PlayerHP;
-    PlayerMovement PM;
     PlayerAttack PA;
     Weapons weapon;
     public VariableJoystick joystick;
     void Start()
     {
-
-        PM = GameObject.Find("Player").GetComponent<PlayerMovement>();
+        
+       
         PA = GameObject.Find("Player").GetComponent<PlayerAttack>();
     }
     private void Update()
@@ -28,7 +26,7 @@ public class Adios : MonoBehaviour
         {
             return;
         }
-        health.text = "HP :" + PlayerHP.Health.ToString();
+        health.text = "HP :" + PData.Health.ToString();
         money.text = "Gold : " + gold.Golds.ToString();
         Timer.text = "Remaining Time : " + timer.Time.ToString();
         fireRate.text = "Fire Rate : " + WP.FireRate.ToString();
@@ -48,7 +46,7 @@ public class Adios : MonoBehaviour
     }
     public void DamageUpg()
     {
-        if (PM.currnetLevelofDamage >= 41)
+        if (PData.currnetLevelofDamage >= 41)
         {
             damageLevel.text = "LvL : " + "Max";
             LevelUpUI.SetActive(false);
@@ -56,58 +54,66 @@ public class Adios : MonoBehaviour
             return;
 
         }
-        PM.currnetLevelofDamage++;
-        PM.isDamageUpg = false;
-        PM.LevelUp();
-        damageLevel.text = "LvL : " + PM.currnetLevelofDamage.ToString();
+        PData.currnetLevelofDamage++;
+        PData.isDamageUpg = false;
+        LevelUp.Raise();
+        damageLevel.text = "LvL : " + PData.currnetLevelofDamage.ToString();
         LevelUpUI.SetActive(false);
         gold.Golds -= 100;
 
     }
     public void FireRateUpg()
     {
-        if (PM.currentLevelofFireRate >= 11)
+        if (PData.currentLevelofFireRate >= 11)
         {
             fireRateLevel.text = "LvL : " + "Max";
             LevelUpUI.SetActive(false);
             skillFireRate.interactable = false;
             return;
         }
-        PM.currentLevelofFireRate++;
-        PM.LevelUp();
-        fireRateLevel.text = "LvL : " + PM.currentLevelofFireRate.ToString();
+        PData.currentLevelofFireRate++;
+        LevelUp.Raise();
+        fireRateLevel.text = "LvL : " + PData.currentLevelofFireRate.ToString();
         LevelUpUI.SetActive(false);
         gold.Golds -= 100;
     }
     public void FireAmoUpg()
     {
-        if (PM.currentLevelofFireAmount >= 2)
+        if (PData.currentLevelofFireAmount >= 2)
         {
             shotsLevel.text = "LvL : " + "Max";
             LevelUpUI.SetActive(false);
             skillFireAmo.interactable = false;
             return;
         }
-        PM.currentLevelofFireAmount++;
-        PM.LevelUp();
-        shotsLevel.text = "LvL : " + PM.currentLevelofFireAmount.ToString();
+        PData.currentLevelofFireAmount++;
+        LevelUp.Raise();
+        shotsLevel.text = "LvL : " + PData.currentLevelofFireAmount.ToString();
         LevelUpUI.SetActive(false);
         gold.Golds -= 100;
     }
     public void WeaponAmoUpg()
     {
-        if (PM.currentLevelofWeaponAmount > 0)
+        if (PData.currentLevelofWeaponAmount > 0)
         {
             weaponsLevel.text = "LvL : " + "Max";
             LevelUpUI.SetActive(false);
             skillWeaponAmo.interactable = false;
             return;
         }
-        PM.currentLevelofWeaponAmount++;
-        PM.LevelUp();
-        weaponsLevel.text = "LvL : " + PM.currentLevelofWeaponAmount.ToString();
+        PData.currentLevelofWeaponAmount++;
+        LevelUp.Raise();
+        weaponsLevel.text = "LvL : " + PData.currentLevelofWeaponAmount.ToString();
         LevelUpUI.SetActive(false);
         gold.Golds -= 100;
+    }
+    public void SaveGame()
+    {
+        SavegameEvent.Raise();
+    }
+    public void LoadGame()
+    {
+        LoadGameEvent.Raise();
     }
     public void SetActiveSkills()
     {
@@ -131,7 +137,7 @@ public class Adios : MonoBehaviour
     }
     public void DeRatata()
     {
-        PM.LevelUp();
+        LevelUp.Raise();
         timer.isSkillCooldown = false;
     }
     public void Bum()

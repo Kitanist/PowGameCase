@@ -1,54 +1,30 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.UI;
 using DG.Tweening;
 public class Enemy : MonoBehaviour
 {
 
-
-    [SerializeField] private GameEvent increaseGold, increaseGoldSlow;
+    [SerializeField] EnemyData enemyData;
+    [SerializeField] private GameEvent increaseGold, increaseGoldSlow,changeSlider;
     public Slider healtBar;
-    GameObject player;
-    PlayerMovement PM;
-    public PlayerSO PlayerHealth;
+    [SerializeField] PlayerData PData;
+    private float speed;
+    private float Health;
+    private float damage;
     private float damageAmount;
     private Vector2 enemyTransform;
     [SerializeField] Animator anim;
-    [SerializeField] float speed;
-    [SerializeField] float Health, maxHealth;
-    [SerializeField] float damage, price;
     [SerializeField] Rigidbody2D rb;
-    [SerializeField] private bool isSlow;
     [SerializeField] BoxCollider2D enemyCollider;
     [SerializeField] Weapon weapon;
-    [SerializeField] PlayerTransform PlayerTF;
     [SerializeField] Timerstuff timer;
+
     private void Start()
     {
-        PM = GameObject.Find("Player").GetComponent<PlayerMovement>();
-        if (isSlow)
-        {
-            speed = 0.2f;
-            maxHealth = 100;
-            Health = 100;
-            damage = 15;
-            price = 50;
-        }
-        else
-        {
-            speed = 0.5f;
-            maxHealth = 29;
-            Health = 29;
-            damage = 10;
-            price = 25;
-        }
-    }
-    private void Awake()
-    {
-       
-        Health = maxHealth;
+        speed = enemyData.StartSpeed;
+        Health = enemyData.maxHealth;
+        damage = enemyData.StartDamage;
     }
     private void FixedUpdate()
     {
@@ -58,7 +34,7 @@ public class Enemy : MonoBehaviour
             return;
         }
         enemyTransform = gameObject.transform.position;
-        Vector2 direction = (PlayerTF.Playertransform - enemyTransform).normalized;
+        Vector2 direction = (PData.Playertransform - enemyTransform).normalized;
         rb.velocity = direction * speed;
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,8 +46,7 @@ public class Enemy : MonoBehaviour
     }
     private void Attack()
     {
-        PM.ChangeSliderValue(damage);
-        PlayerHealth.healthChangeEvent.Invoke(damage);
+        changeSlider.Raise();
         EnemyDying();
     }
 
@@ -82,7 +57,7 @@ public class Enemy : MonoBehaviour
         {
 
             Health -= damageAmount;
-            healtBar.DOValue(Health / maxHealth, .5f, false);
+            healtBar.DOValue(Health / enemyData.maxHealth, .5f, false);
 
             return;
         }
@@ -92,11 +67,8 @@ public class Enemy : MonoBehaviour
     }
     public void EnemyDying()
     {
-        if (isSlow)
-            increaseGold.Raise();
-        else
-            increaseGoldSlow.Raise();
-        // þu efekti de event sisteme ata 
+        enemyData.EnemyGoldGainTypeEvent.Raise();
+       
 
         StartCoroutine(EnemyDyingEnum());
        
@@ -115,9 +87,7 @@ public class Enemy : MonoBehaviour
     public void PowerUpEnemy()
     {
         damage += 5;
-        maxHealth += 10;
         Health += 10;
-        price += 10;
     }
 
 }

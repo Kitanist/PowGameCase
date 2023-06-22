@@ -292,21 +292,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2543eaa9864874d4eafd8160ec4024df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyData: {fileID: 11400000, guid: 8b5a6a31371ac3749844fe64f4033acc, type: 2}
   increaseGold: {fileID: 11400000, guid: 5ffc449b1bdc48543ab653e7bda76491, type: 2}
   increaseGoldSlow: {fileID: 11400000, guid: b3cb59de94732904f9881e0bdd35b321, type: 2}
+  changeSlider: {fileID: 11400000, guid: 36c821167c7fa934f8de7c997cce5033, type: 2}
   healtBar: {fileID: 4622528792196309979}
-  PlayerHealth: {fileID: 11400000, guid: 2855a2ebbcfcbae41ae4cac922302fb1, type: 2}
+  PData: {fileID: 11400000, guid: fbd7562e4ffbc4d4b9b459d3e025691a, type: 2}
   anim: {fileID: 6323438983388331257}
-  speed: 0.1
-  Health: 65
-  maxHealth: 65
-  damage: 10
-  price: 50
   rb: {fileID: 8987568650194820701}
-  isSlow: 1
   enemyCollider: {fileID: 6555738479308787179}
   weapon: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
-  PlayerTF: {fileID: 11400000, guid: 7b56d8f231b26074eb9ec245f75ff26a, type: 2}
   timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
 --- !u!50 &8987568650194820701
 Rigidbody2D:

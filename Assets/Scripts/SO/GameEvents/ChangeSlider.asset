@@ -9,7 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 413625e63f7647a4fbb5b5a89344fa6d, type: 3}
-  m_Name: PlayerTransform
+  m_Script: {fileID: 11500000, guid: f468e711ced8d554da3f31136428afe7, type: 3}
+  m_Name: ChangeSlider
   m_EditorClassIdentifier: 
-  playertransform: {x: 0, y: 0}

@@ -19,16 +19,16 @@ public class GameManager : MonoSingeleton<GameManager>
 
     [SerializeField] Timerstuff timer;
 
-    [SerializeField] GameEvent setActiveSkill, deActiveSkill,levelUpPlayer,tiktak;
+    [SerializeField] GameEvent setActiveSkill, deActiveSkill,levelUpPlayer,tiktak, Win, Lose;
 
-
-   
+    [SerializeField] PlayerData PData;
 
     private float Second = 1;
     private void Start()
     {  
         InvokeRepeating("PingTime", 50, 50);
         scenesToLoad.Add(SceneManager.LoadSceneAsync("HUD", LoadSceneMode.Additive));
+        
     }
     private void Update()
     {
@@ -42,6 +42,19 @@ public class GameManager : MonoSingeleton<GameManager>
             tiktak.Raise();
             Debug.Log("SANÝYE");
             return;
+        }
+        if (!timer.isGameContinue && Time.timeScale > 0)
+        {
+            Win.Raise();
+            Time.timeScale = 0f;
+            Debug.Log("Zamaný yedim afied");
+        }
+
+        if (PData.Health <= 0 && Time.timeScale > 0)
+        {
+            Lose.Raise();
+            Time.timeScale = 0f;
+            Debug.Log("Zamaný yedim");
         }
         Second -= Time.deltaTime;
     }
@@ -64,15 +77,19 @@ public class GameManager : MonoSingeleton<GameManager>
     public void increaseGold()
     {
         gold.Golds += 25;
+        PData.SaveGame();
     }
     public void increaseGoldSlow()
     {
 
         gold.Golds += 50;
+        PData.SaveGame();
     }
+    
     void PingTime()
     {
         
     }
+  
    
 }

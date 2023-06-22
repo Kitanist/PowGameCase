@@ -1,12 +1,10 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
     #region variables
-    public float attackRadius = 1;
-    public int FireAmount = 1;
+    
     public Collider2D[] targets, targetsForUlti;
     public LayerMask EnemyMask;
     public Weapons Weapon;
@@ -15,6 +13,7 @@ public class PlayerAttack : MonoBehaviour
     protected bool reset = true;
     private float shortDis;
     [SerializeField] Timerstuff timer;
+    [SerializeField] PlayerData PData;
     private void Awake()
     {
         InvokeRepeating("UpdateTarget", 1, 1);
@@ -30,7 +29,7 @@ public class PlayerAttack : MonoBehaviour
         if (reset && target)
         {
             reset = false;
-            for (int i = 0; i < FireAmount; i++)
+            for (int i = 0; i < PData.FireAmount; i++)
             {
                 Weapon.Fire();
             }
@@ -43,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
         if (target)
         {
             float dis = Vector2.Distance(target.transform.position, transform.position);
-            if (dis > attackRadius || !target.gameObject.activeInHierarchy)
+            if (dis > PData.attackRadius || !target.gameObject.activeInHierarchy)
             {
                 target = null;
             }
@@ -52,8 +51,8 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
-            targets = Physics2D.OverlapCircleAll(this.transform.position, attackRadius, EnemyMask);
-            shortDis = attackRadius;
+            targets = Physics2D.OverlapCircleAll(this.transform.position, PData.attackRadius, EnemyMask);
+            shortDis = PData.attackRadius;
 
             foreach (var obj in targets)
             {

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f389c31423a1b6542a9772d20e985f7b, type: 3}
+  m_Name: Slow
+  m_EditorClassIdentifier: 
+  speed: 0.2
+  StartSpeed: 0.2
+  Health: 100
+  maxHealth: 100
+  damage: 15
+  StartDamage: 15
+  EnemyGoldGainTypeEvent: {fileID: 11400000, guid: b3cb59de94732904f9881e0bdd35b321, type: 2}
