@@ -4792,19 +4792,7 @@ MonoBehaviour:
   event: {fileID: 11400000, guid: 6281afe6b9451b84c89927944650bb64, type: 2}
   response:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1563358952}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: TimeControl
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &1572632441
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27991,6 +27979,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6680369422881698297, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7674444115376008405, guid: fa877d52a6760cb41bb735c708f1ab21, type: 3}
       propertyPath: m_Name
       value: Player
@@ -28358,3 +28350,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67616d366cc254e429f74b91555a7722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7674444115802435869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074360795}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 03a51d5aa81411a40919e80a0c425969, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7674444115802435849}
+        m_TargetAssemblyTypeName: PlayerAttack, Assembly-CSharp
+        m_MethodName: skillActiveBam
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

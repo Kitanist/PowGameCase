@@ -13,13 +13,15 @@ MonoBehaviour:
   m_Name: PlayerData
   m_EditorClassIdentifier: 
   attackRadius: 1
-  FireAmount: 1
+  fireAmount: 3
+  health: 100
+  playerpos: {x: 0.11899972, y: 1.316869}
   movementSpeed: 1
-  currentLevelofFireRate: 0
+  currentLevelofFireRate: 1
   currnetLevelofDamage: 0
-  currentLevelofFireAmount: 0
-  currentLevelofWeaponAmount: 0
+  currentLevelofFireAmount: 2
+  currentLevelofWeaponAmount: 1
   MaxHealth: 100
   isDamageUpg: 1
-  _Health: 100
-  playertransform: {x: 1.8189986, y: 1.7968686}
+  UpdateVariables: {fileID: 11400000, guid: b0caaf2602bfd23489b4fece5531f3ba, type: 2}
+  UpdateTransform: {fileID: 11400000, guid: bf8d3eb970ac7b0469c3cc379e17ebe2, type: 2}

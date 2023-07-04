@@ -769,8 +769,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 411498040}
-        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
+      - m_Target: {fileID: 205656907}
+        m_TargetAssemblyTypeName: SkillUIManager, Assembly-CSharp
         m_MethodName: Ratata
         m_Mode: 1
         m_Arguments:
@@ -897,6 +897,170 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 204806778}
   m_CullTransparentMesh: 1
+--- !u!1 &205656903
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 205656908}
+  - component: {fileID: 205656907}
+  - component: {fileID: 205656909}
+  - component: {fileID: 205656906}
+  - component: {fileID: 205656905}
+  - component: {fileID: 205656904}
+  m_Layer: 0
+  m_Name: UISkillManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &205656904
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205656903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 82badb677a6b02947aa0ccd9de620188, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 205656907}
+        m_TargetAssemblyTypeName: SkillUIManager, Assembly-CSharp
+        m_MethodName: LevelUpUIOpen
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &205656905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205656903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 70c90d41393ac9c419301ad15ce6222f, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 205656907}
+        m_TargetAssemblyTypeName: SkillUIManager, Assembly-CSharp
+        m_MethodName: SetDeActiveSkills
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &205656906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205656903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: b81a73f733eaeeb4282a7e773148e0ef, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 205656907}
+        m_TargetAssemblyTypeName: SkillUIManager, Assembly-CSharp
+        m_MethodName: SetActiveSkills
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &205656907
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205656903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 949a9f5796fa71e4084e7fe9c6ff909a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageLevel: {fileID: 2029154822}
+  fireRateLevel: {fileID: 9693578}
+  shotsLevel: {fileID: 1890490164}
+  weaponsLevel: {fileID: 1889391444}
+  gold: {fileID: 11400000, guid: c128d35b5a08f294cb93169187ebb823, type: 2}
+  PData: {fileID: 11400000, guid: fbd7562e4ffbc4d4b9b459d3e025691a, type: 2}
+  LevelUp: {fileID: 11400000, guid: 3e67b3b2b1a20754d98346f76bea38b1, type: 2}
+  LevelUpUI: {fileID: 1320569684}
+  skillDamage: {fileID: 754097924}
+  skillFireRate: {fileID: 2138457465}
+  skillFireAmo: {fileID: 728011338}
+  skillWeaponAmo: {fileID: 1284827049}
+--- !u!4 &205656908
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205656903}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8002283, y: -0.040308524, z: 4.0705614}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &205656909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205656903}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dcd95648942b9845bb3744efd66bfde, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillActiveBum: {fileID: 1603391618}
+  skillActiveRatata: {fileID: 111435260}
+  gold: {fileID: 11400000, guid: c128d35b5a08f294cb93169187ebb823, type: 2}
+  PData: {fileID: 11400000, guid: fbd7562e4ffbc4d4b9b459d3e025691a, type: 2}
+  timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
+  WP: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
+  LevelUp: {fileID: 11400000, guid: 3e67b3b2b1a20754d98346f76bea38b1, type: 2}
+  BumSkillUsing: {fileID: 11400000, guid: 03a51d5aa81411a40919e80a0c425969, type: 2}
 --- !u!1 &268194044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,9 +1466,6 @@ GameObject:
   - component: {fileID: 411498040}
   - component: {fileID: 411498041}
   - component: {fileID: 411498042}
-  - component: {fileID: 411498044}
-  - component: {fileID: 411498043}
-  - component: {fileID: 411498045}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -1376,29 +1537,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Win: {fileID: 295870614}
   Lose: {fileID: 204806778}
-  LevelUpUI: {fileID: 1320569684}
-  gold: {fileID: 11400000, guid: c128d35b5a08f294cb93169187ebb823, type: 2}
-  timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
-  WP: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
-  PData: {fileID: 11400000, guid: fbd7562e4ffbc4d4b9b459d3e025691a, type: 2}
-  LevelUp: {fileID: 11400000, guid: 3e67b3b2b1a20754d98346f76bea38b1, type: 2}
   LoadGameEvent: {fileID: 11400000, guid: 89ed46481c8b69d48b69cfa797c1953f, type: 2}
   SavegameEvent: {fileID: 11400000, guid: 527f57e1811a2994cab21f37f465f63c, type: 2}
-  skillDamage: {fileID: 754097924}
-  skillFireRate: {fileID: 2138457465}
-  skillFireAmo: {fileID: 728011338}
-  skillWeaponAmo: {fileID: 1284827049}
-  skillActiveBum: {fileID: 1603391618}
-  skillActiveRatata: {fileID: 111435260}
-  money: {fileID: 1552242053}
-  health: {fileID: 789636171}
-  damage: {fileID: 516439300}
-  fireRate: {fileID: 746095184}
-  damageLevel: {fileID: 2029154822}
-  fireRateLevel: {fileID: 9693578}
-  shotsLevel: {fileID: 1890490164}
-  weaponsLevel: {fileID: 1889391444}
-  Timer: {fileID: 1934902732}
   joystick: {fileID: 1342302512}
 --- !u!114 &411498041
 MonoBehaviour:
@@ -1447,90 +1587,6 @@ MonoBehaviour:
       - m_Target: {fileID: 411498040}
         m_TargetAssemblyTypeName: Adios, Assembly-CSharp
         m_MethodName: Winned
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &411498043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411498036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 70c90d41393ac9c419301ad15ce6222f, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 411498040}
-        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
-        m_MethodName: SetDeActiveSkills
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &411498044
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411498036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: b81a73f733eaeeb4282a7e773148e0ef, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 411498040}
-        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
-        m_MethodName: SetActiveSkills
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &411498045
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 411498036}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  event: {fileID: 11400000, guid: 82badb677a6b02947aa0ccd9de620188, type: 2}
-  response:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 411498040}
-        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
-        m_MethodName: LevelUpUIOpen
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2163,7 +2219,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 57
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -2250,10 +2306,10 @@ RectTransform:
   m_Father: {fileID: 1320569685}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 683.75, y: -96}
-  m_SizeDelta: {x: 217.5, y: 192}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &728011337
 MonoBehaviour:
@@ -2319,8 +2375,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 411498040}
-        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
+      - m_Target: {fileID: 205656907}
+        m_TargetAssemblyTypeName: SkillUIManager, Assembly-CSharp
         m_MethodName: FireAmoUpg
         m_Mode: 1
         m_Arguments:
@@ -2541,10 +2597,10 @@ RectTransform:
   m_Father: {fileID: 1320569685}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 108.75, y: -96}
-  m_SizeDelta: {x: 217.5, y: 192}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &754097923
 MonoBehaviour:
@@ -2610,8 +2666,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 411498040}
-        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
+      - m_Target: {fileID: 205656907}
+        m_TargetAssemblyTypeName: SkillUIManager, Assembly-CSharp
         m_MethodName: DamageUpg
         m_Mode: 1
         m_Arguments:
@@ -3071,6 +3127,130 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 903907994}
   m_CullTransparentMesh: 1
+--- !u!1 &915723267
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 915723270}
+  - component: {fileID: 915723269}
+  - component: {fileID: 915723268}
+  - component: {fileID: 915723272}
+  - component: {fileID: 915723271}
+  m_Layer: 0
+  m_Name: UIVariableManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &915723268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915723267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: b0caaf2602bfd23489b4fece5531f3ba, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 915723269}
+        m_TargetAssemblyTypeName: UIVariableManager, Assembly-CSharp
+        m_MethodName: SetVariable
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &915723269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915723267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6da4c840d7406784d971589efe3b4d78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gold: {fileID: 11400000, guid: c128d35b5a08f294cb93169187ebb823, type: 2}
+  PData: {fileID: 11400000, guid: fbd7562e4ffbc4d4b9b459d3e025691a, type: 2}
+  WP: {fileID: 11400000, guid: feb39ace4ea0fe847bd9402a0de1a089, type: 2}
+  money: {fileID: 1552242053}
+  health: {fileID: 789636171}
+  damage: {fileID: 516439300}
+  fireRate: {fileID: 746095184}
+--- !u!4 &915723270
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915723267}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8002283, y: -0.040308524, z: 4.0705614}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &915723271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915723267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40fd86e6705aaea4a8c28547301cbad2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  event: {fileID: 11400000, guid: 6281afe6b9451b84c89927944650bb64, type: 2}
+  response:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 915723272}
+        m_TargetAssemblyTypeName: UITimeController, Assembly-CSharp
+        m_MethodName: TimeVariableSet
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &915723272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 915723267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f853e6273ffbc024aafe94c00d7d33be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timer: {fileID: 11400000, guid: f2e9d58ba2856c244b07bf5b6deaacb2, type: 2}
+  Timer: {fileID: 1934902732}
 --- !u!1 &919473102
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,10 +3804,10 @@ RectTransform:
   m_Father: {fileID: 1320569685}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 971.25, y: -96}
-  m_SizeDelta: {x: 217.5, y: 192}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284827048
 MonoBehaviour:
@@ -3693,8 +3873,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 411498040}
-        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
+      - m_Target: {fileID: 205656907}
+        m_TargetAssemblyTypeName: SkillUIManager, Assembly-CSharp
         m_MethodName: WeaponAmoUpg
         m_Mode: 1
         m_Arguments:
@@ -3759,7 +3939,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1320569685
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4611,8 +4791,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 411498040}
-        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
+      - m_Target: {fileID: 205656907}
+        m_TargetAssemblyTypeName: SkillUIManager, Assembly-CSharp
         m_MethodName: Bum
         m_Mode: 1
         m_Arguments:
@@ -4921,7 +5101,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 54.35
+  m_fontSize: 72
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -5695,10 +5875,10 @@ RectTransform:
   m_Father: {fileID: 1320569685}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 396.25, y: -96}
-  m_SizeDelta: {x: 217.5, y: 192}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2138457464
 MonoBehaviour:
@@ -5764,8 +5944,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 411498040}
-        m_TargetAssemblyTypeName: Adios, Assembly-CSharp
+      - m_Target: {fileID: 205656907}
+        m_TargetAssemblyTypeName: SkillUIManager, Assembly-CSharp
         m_MethodName: FireRateUpg
         m_Mode: 1
         m_Arguments:

@@ -24,8 +24,8 @@ public class PlayerDataSave
         isDamageUpg = Data.isDamageUpg;
         _Health = Data.Health;
         playertransform = new float[2];
-        playertransform[0] = Data.Playertransform.x;
-        playertransform[1] = Data.Playertransform.y;
+        playertransform[0] = Data.Playerpos.x;
+        playertransform[1] = Data.Playerpos.y;
         
 
     }

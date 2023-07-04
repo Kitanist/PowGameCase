@@ -4,22 +4,22 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class Enemy : MonoBehaviour
 {
-
+    #region Variables
     [SerializeField] EnemyData enemyData;
     [SerializeField] private GameEvent increaseGold, increaseGoldSlow,changeSlider;
-    public Slider healtBar;
-    [SerializeField] PlayerData PData;
-    private float speed;
-    private float Health;
-    private float damage;
-    private float damageAmount;
-    private Vector2 enemyTransform;
     [SerializeField] Animator anim;
     [SerializeField] Rigidbody2D rb;
     [SerializeField] BoxCollider2D enemyCollider;
     [SerializeField] Weapon weapon;
     [SerializeField] Timerstuff timer;
-
+    [SerializeField] PlayerData PData;
+    public Slider healtBar;
+    private float speed;
+    private float Health;
+    private float damage;
+    private float damageAmount;
+    private Vector2 enemyTransform;
+    #endregion
     private void Start()
     {
         speed = enemyData.StartSpeed;
@@ -33,19 +33,25 @@ public class Enemy : MonoBehaviour
             rb.velocity = Vector2.zero;
             return;
         }
-        enemyTransform = gameObject.transform.position;
-        Vector2 direction = (PData.Playertransform - enemyTransform).normalized;
+        Vector2 direction = (PData.Playerpos - enemyTransform).normalized;
         rb.velocity = direction * speed;
+    }
+    public void UpdateTargetPos()
+    {
+        enemyTransform = gameObject.transform.position; 
+       
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.TryGetComponent<PlayerMovement>(out _))
+        bool isPlayer = TryGetComponent(out PlayerMovement player);
+        if (isPlayer) 
         {
             Attack();
         }
     }
     private void Attack()
     {
+       
         changeSlider.Raise();
         EnemyDying();
     }

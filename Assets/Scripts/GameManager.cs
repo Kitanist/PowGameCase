@@ -23,45 +23,19 @@ public class GameManager : MonoSingeleton<GameManager>
 
     [SerializeField] PlayerData PData;
 
-    private float Second = 1;
     private void Start()
     {  
-        InvokeRepeating("PingTime", 50, 50);
+        InvokeRepeating(nameof(PingTime), 50, 50);
         scenesToLoad.Add(SceneManager.LoadSceneAsync("HUD", LoadSceneMode.Additive));
+        StartCoroutine(TimeControl());
         
     }
-    private void Update()
+  
+    public IEnumerator TimeControl()
     {
-        if (timer.isGamePaused)
-        {
-            return;
-        }
-        if (Second <= 0)
-        {
-            Second = 1;
-            tiktak.Raise();
-            Debug.Log("SANÝYE");
-            return;
-        }
-        if (!timer.isGameContinue && Time.timeScale > 0)
-        {
-            Win.Raise();
-            Time.timeScale = 0f;
-            Debug.Log("Zamaný yedim afied");
-        }
-
-        if (PData.Health <= 0 && Time.timeScale > 0)
-        {
-            Lose.Raise();
-            Time.timeScale = 0f;
-            Debug.Log("Zamaný yedim");
-        }
-        Second -= Time.deltaTime;
-    }
-    public void TimeControl()
-    {
+         tiktak.Raise();
+    yield return new WaitForSeconds(1);
         timer.Time--;
-       
         if (gold.Golds >= 100)
         {
             levelUpPlayer.Raise();
@@ -70,8 +44,16 @@ public class GameManager : MonoSingeleton<GameManager>
         {
             setActiveSkill.Raise();
         }
-       // else
-       //     deActiveSkill.Raise();
+        if (!timer.isGameContinue)
+        {
+            Win.Raise();
+            Time.timeScale = 0f;
+        }
+        if (PData.Health <= 0)
+        {
+            Lose.Raise();
+            Time.timeScale = 0f;
+        }
     }
    
     public void increaseGold()

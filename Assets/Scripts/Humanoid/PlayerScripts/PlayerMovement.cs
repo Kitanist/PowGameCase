@@ -31,7 +31,6 @@ public class PlayerMovement : MonoBehaviour
     
     void InitUI()
     {
-        //   public TextMeshProUGUI money, health, damage, fireRate;
         EventSystem = GameObject.Find("EventSystem").GetComponent<Adios>();
         variableJoystick = EventSystem.joystick;
        
@@ -68,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
     }
     public void MoveToLoad()
     {
-        gameObject.transform.position = PData.Playertransform;
+        gameObject.transform.position = PData.Playerpos;
     }
     void Move()
     {
@@ -88,6 +87,6 @@ public class PlayerMovement : MonoBehaviour
             animator.SetFloat("Vertical", variableJoystick.Vertical);
             animator.SetFloat("Speed", direction.sqrMagnitude);
         }
-        PData.Playertransform = gameObject.transform.position;
+        PData.Playerpos = gameObject.transform.position;
     }
 }

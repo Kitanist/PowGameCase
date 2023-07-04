@@ -3,8 +3,11 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "newPlayerData", menuName = "Data/PlayerData/BaseData")]
 public class PlayerData : ScriptableObject
 {
-    public float attackRadius = 1;
-    public int FireAmount = 1;
+    [SerializeField] private float attackRadius = 1;
+    [SerializeField] private int fireAmount = 1;
+    [SerializeField] private float health;
+    [SerializeField] private Vector2 playerpos;
+
     public float movementSpeed;
     public int currentLevelofFireRate = 0  ;
     public int currnetLevelofDamage = 0;
@@ -12,26 +15,42 @@ public class PlayerData : ScriptableObject
     public int currentLevelofWeaponAmount = 0;
     public float MaxHealth;
     public bool isDamageUpg;
-    [SerializeField] private float _Health;
-    [SerializeField] private Vector2 playertransform;
     
-    public Vector2 Playertransform
+    public GameEvent UpdateVariables,UpdateTransform;
+
+    public Vector2 Playerpos 
     {
-        get { return playertransform; }
+        get { return playerpos; }
         set
         {
-            playertransform = value;
+            playerpos = value;
+            UpdateTransform.Raise();
         }
     }
     public float Health
     {
-        get { return _Health; }
+        get { return health; }
         set
         {
-            _Health = value;
+            UpdateVariables.Raise();
+            health = value;
         }
     }
 
+    public float AttackRadius { get => attackRadius;
+        set
+        {
+            attackRadius = value;
+            UpdateVariables.Raise();
+        }
+    }
+    public int FireAmount { get => fireAmount;
+        set
+        {
+            fireAmount = value;
+            UpdateVariables.Raise();
+        }
+    }
 
     private void OnEnable()
     {
@@ -50,10 +69,10 @@ public class PlayerData : ScriptableObject
         currnetLevelofDamage = data.currnetLevelofDamage;
         currentLevelofFireAmount = data.currentLevelofFireAmount;
         currentLevelofWeaponAmount = data.currentLevelofWeaponAmount;
-        _Health = data._Health;
-        playertransform.x = data.playertransform[0];
-        playertransform.y = data.playertransform[1];
-
+        health = data._Health;
+        playerpos.x = data.playertransform[0];
+        playerpos.y = data.playertransform[1];
+        UpdateVariables.Raise();
     }
     public void DecreaseHealth(float Damage)
     {

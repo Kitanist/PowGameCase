@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
         if (target)
         {
             float dis = Vector2.Distance(target.transform.position, transform.position);
-            if (dis > PData.attackRadius || !target.gameObject.activeInHierarchy)
+            if (dis > PData.AttackRadius || !target.gameObject.activeInHierarchy)
             {
                 target = null;
             }
@@ -51,8 +51,8 @@ public class PlayerAttack : MonoBehaviour
         }
         else
         {
-            targets = Physics2D.OverlapCircleAll(this.transform.position, PData.attackRadius, EnemyMask);
-            shortDis = PData.attackRadius;
+            targets = Physics2D.OverlapCircleAll(this.transform.position, PData.AttackRadius, EnemyMask);
+            shortDis = PData.AttackRadius;
 
             foreach (var obj in targets)
             {

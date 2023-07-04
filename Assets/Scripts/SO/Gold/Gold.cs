@@ -5,6 +5,7 @@ using UnityEngine;
 public class Gold : ScriptableObject
 {
     [SerializeField] private float gold = 0;
+    public GameEvent UpdateVariables;
     private void OnEnable()
     {
         gold = 0;
@@ -15,6 +16,7 @@ public class Gold : ScriptableObject
         get { return gold; }
         set
         {
+            UpdateVariables.Raise();
             if (value < 0)
                 gold = 0;
             else

@@ -9,8 +9,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dcda8a714811674f8e8cdc73da478a0, type: 3}
-  m_Name: Gold
+  m_Script: {fileID: 11500000, guid: f468e711ced8d554da3f31136428afe7, type: 3}
+  m_Name: UpdateVariables
   m_EditorClassIdentifier: 
-  gold: 0
-  UpdateVariables: {fileID: 11400000, guid: b0caaf2602bfd23489b4fece5531f3ba, type: 2}

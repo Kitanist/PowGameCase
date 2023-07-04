@@ -10,10 +10,10 @@ public class PlayerManager : MonoBehaviour
     
     private void Start()
     {
-        ChangeSliderValue(PData.Health);
+        ChangeSliderValue(PData.Health); // bunu eventli havalý biþi yap
         LevelUp();
     }
-    public void ChangeSliderValue(float value)
+    public void ChangeSliderValue(float value) // ayrý class event deðiþtir
     {
         HealthBar.DOValue(PData.Health / PData.MaxHealth, 0.5f, false);
     }
